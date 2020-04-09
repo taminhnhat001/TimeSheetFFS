@@ -24,14 +24,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         v_Or.layer.cornerRadius = v_Or.frame.size.width / 2
-        
+        txtUserName.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+        txtPassWord.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
     }
 
     @IBAction func Login(_ sender: UIButton) {
         userName = txtUserName.text ?? ""
         
         //Alert thong bao ko thanh cong
-        if (txtUserName.text == "" || txtUserName.text == "User name") {
+        if (txtUserName.text == "") {
             let alert:UIAlertController = UIAlertController(title: "Không thành công", message: "Thông tin bạn nhập bị thiếu hoặc không chính xác. Vui lòng đăng nhập lại", preferredStyle: UIAlertController.Style.alert)
             let btnOk:UIAlertAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { (btn) in
                 self.txtUserName.text = ""
@@ -40,7 +41,7 @@ class ViewController: UIViewController {
             alert.addAction(btnOk)
             present(alert, animated: true, completion: nil)
         }
-        if (txtPassWord.text == "" || txtPassWord.text == "Password") {
+        if (txtPassWord.text == "") {
             let alert:UIAlertController = UIAlertController(title: "Không thành công", message: "Thông tin bạn nhập bị thiếu hoặc không chính xác. Vui lòng đăng nhập lại", preferredStyle: UIAlertController.Style.alert)
             let btnOk:UIAlertAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { (btn) in
                 self.txtUserName.text = ""
@@ -146,4 +147,3 @@ extension Data
         return String(data: self, encoding: .utf8)
     }
 }
-
