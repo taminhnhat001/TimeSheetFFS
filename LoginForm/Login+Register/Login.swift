@@ -23,6 +23,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        txtUserName.text = ""
+        txtPassWord.text = ""
         v_Or.layer.cornerRadius = v_Or.frame.size.width / 2
         txtUserName.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
         txtPassWord.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])

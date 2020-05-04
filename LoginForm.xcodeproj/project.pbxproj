@@ -109,20 +109,36 @@
 			isa = PBXGroup;
 			children = (
 				89AA9BBA2431EB190024649A /* Lib */,
+				898582FB245FF6A600AC5361 /* Login+Register */,
 				89AA9BB92431EB020024649A /* Project */,
 				89AA9BB82431EAEF0024649A /* Filter */,
 				89AA9BB72431EAE10024649A /* Home */,
+				898582FC245FF6C400AC5361 /* CreateTask */,
 				8934EA34242319D7008D5D8E /* AppDelegate.swift */,
 				8934EA36242319D7008D5D8E /* SceneDelegate.swift */,
-				893CEEA724236FB8005EFD2D /* Register.swift */,
-				8934EA38242319D7008D5D8E /* Login.swift */,
-				898A4DEC2433388500E44357 /* CreateTask.swift */,
 				8934EA3A242319D7008D5D8E /* Main.storyboard */,
 				8934EA3D242319D8008D5D8E /* Assets.xcassets */,
 				8934EA3F242319D8008D5D8E /* LaunchScreen.storyboard */,
 				8934EA42242319D8008D5D8E /* Info.plist */,
 			);
 			path = LoginForm;
+			sourceTree = "<group>";
+		};
+		898582FB245FF6A600AC5361 /* Login+Register */ = {
+			isa = PBXGroup;
+			children = (
+				893CEEA724236FB8005EFD2D /* Register.swift */,
+				8934EA38242319D7008D5D8E /* Login.swift */,
+			);
+			path = "Login+Register";
+			sourceTree = "<group>";
+		};
+		898582FC245FF6C400AC5361 /* CreateTask */ = {
+			isa = PBXGroup;
+			children = (
+				898A4DEC2433388500E44357 /* CreateTask.swift */,
+			);
+			path = CreateTask;
 			sourceTree = "<group>";
 		};
 		89AA9BB72431EAE10024649A /* Home */ = {
