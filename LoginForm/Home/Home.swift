@@ -254,6 +254,34 @@ class Home: UIViewController {
         }
     }
     
+    //SwipeGesture (Kéo về trái để chuyển sang CreateTask)
+    @IBAction func swipeToCT(_ sender: UISwipeGestureRecognizer) {
+        isFilter = false
+        arrList.removeAll()
+        arrListFilterDate.removeAll()
+        arrListFilterTrangThaiDaDuyet.removeAll()
+        arrListFilterTrangThaiChuaDuyet.removeAll()
+        arrListFilterTrangThaiDong.removeAll()
+        arrListFilterDaDuyetChuaDuyet.removeAll()
+        arrListFilterDaDuyetDong.removeAll()
+        arrListFilterChuaDuyetDong.removeAll()
+        arrListFilterTrangThai.removeAll()
+        arrListFilterDaDuyetDuAn.removeAll()
+        arrListFilterChuaDuyetDuAn.removeAll()
+        arrListFilterDongDuAn.removeAll()
+        arrListFilterDuAnDaDuyet.removeAll()
+        arrListFilterDuAnChuaDuyet.removeAll()
+        arrListFilterDuAnDong.removeAll()
+        arrListFilterDaDuyetChuaDuyetDuAn.removeAll()
+        arrListFilterDaDuyetDongDuAn.removeAll()
+        arrListFilterChuaDuyetDongDuAn.removeAll()
+        arrListFilterTrangThaiDuAn.removeAll()
+        arrProjectNameFilterSelected.removeAll()
+        let sb = UIStoryboard.init(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "CreateTask") as? CreateTask
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
+    
     func getList(apiKey: String) {
         let urlString = "https://ts.fss.com.vn/core/json.php"
         guard let url = URL(string: urlString) else { return }

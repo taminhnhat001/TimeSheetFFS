@@ -247,7 +247,7 @@ class CreateTask: UIViewController {
     @IBAction func toGetTimeSheet(_ sender: UIButton) {
         let sb = UIStoryboard.init(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "Home") as? Home
-        self.navigationController?.pushViewController(vc!, animated: true)
+        self.navigationController?.customPushViewFromLeft(controller: vc!)
     }
     
     @IBAction func createTask(_ sender: UIButton) {
@@ -337,6 +337,24 @@ class CreateTask: UIViewController {
         }
         task.resume()
     }
+    
+    //SwipeGesture (chuyển sang màn hình Home danh sách Time Sheet)
+    @IBAction func swipeToTSList(_ sender: UISwipeGestureRecognizer) {
+        let sb = UIStoryboard.init(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "Home") as? Home
+        self.navigationController?.customPushViewFromLeft(controller: vc!)
+    }
 }
 
-
+//Custom thêm navigation controller: Khi push màn hình hướng sẽ là từ trái sang phải (mặc định là từ phải sang trái)
+extension UINavigationController {
+    func customPushViewFromLeft(controller: UIViewController) {
+        let transition: CATransition = CATransition()
+        transition.duration = 0.5
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromLeft
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        view.window!.layer.add(transition, forKey: kCATransition)
+        pushViewController(controller, animated: false)
+    }
+}

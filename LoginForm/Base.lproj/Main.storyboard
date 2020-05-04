@@ -32,7 +32,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mGa-ct-RJK">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mGa-ct-RJK">
                                 <rect key="frame" x="78" y="295" width="305" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="OVw-lW-uN3"/>
@@ -41,7 +41,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="wH7-XC-jYc">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="wH7-XC-jYc">
                                 <rect key="frame" x="78" y="384" width="305" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="AIC-JE-n3p"/>
@@ -393,6 +393,10 @@
                                             <constraint firstAttribute="height" constant="35" id="wRJ-H7-cOM"/>
                                         </constraints>
                                     </imageView>
+                                    <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IcQ-sr-nhB" userLabel="ViewXamBenPhai">
+                                        <rect key="frame" x="0.0" y="0.0" width="207" height="45"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXK-u9-aAu" userLabel="Bt Create">
                                         <rect key="frame" x="0.0" y="0.0" width="207" height="45"/>
                                         <connections>
@@ -402,17 +406,22 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.53731539617808843" green="0.66666668653488159" blue="0.55094587120352956" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="IcQ-sr-nhB" firstAttribute="leading" secondItem="yll-VS-aLj" secondAttribute="leading" id="6c7-tu-cZ2"/>
                                     <constraint firstItem="CXK-u9-aAu" firstAttribute="top" secondItem="yll-VS-aLj" secondAttribute="top" id="AYs-rc-g2B"/>
                                     <constraint firstItem="CXK-u9-aAu" firstAttribute="leading" secondItem="yll-VS-aLj" secondAttribute="leading" id="C26-VQ-btl"/>
                                     <constraint firstItem="M4p-Jc-2Sg" firstAttribute="centerX" secondItem="yll-VS-aLj" secondAttribute="centerX" id="GXN-Ho-6lS"/>
                                     <constraint firstAttribute="height" constant="45" id="L0z-l8-BRG"/>
+                                    <constraint firstAttribute="trailing" secondItem="IcQ-sr-nhB" secondAttribute="trailing" id="TRA-Fe-guG"/>
+                                    <constraint firstItem="IcQ-sr-nhB" firstAttribute="top" secondItem="yll-VS-aLj" secondAttribute="top" id="ZEF-PJ-eHY"/>
                                     <constraint firstItem="M4p-Jc-2Sg" firstAttribute="centerY" secondItem="yll-VS-aLj" secondAttribute="centerY" id="ZgW-w1-KdU"/>
                                     <constraint firstAttribute="trailing" secondItem="CXK-u9-aAu" secondAttribute="trailing" id="b2P-sf-qHr"/>
                                     <constraint firstAttribute="bottom" secondItem="CXK-u9-aAu" secondAttribute="bottom" id="hls-3v-Agk"/>
+                                    <constraint firstAttribute="bottom" secondItem="IcQ-sr-nhB" secondAttribute="bottom" id="u7h-MI-Ilr"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="v1b-FK-Vur" firstAttribute="top" secondItem="ZSd-zA-gWu" secondAttribute="bottom" id="2WH-bE-2kx"/>
                             <constraint firstItem="TkT-44-AlU" firstAttribute="trailing" secondItem="roR-jm-vKv" secondAttribute="trailing" constant="8" id="3rY-pm-35v"/>
@@ -435,6 +444,9 @@
                             <constraint firstItem="aTk-6L-Z80" firstAttribute="bottom" secondItem="TkT-44-AlU" secondAttribute="bottom" id="wqM-Ds-lHd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TkT-44-AlU"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Rao-Wj-74R" appends="YES" id="zNJ-3X-uVd"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="TimeSheet" image="get_list" id="arK-kS-8t9"/>
                     <connections>
@@ -445,6 +457,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sfE-yb-5Ye" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="Rao-Wj-74R">
+                    <connections>
+                        <action selector="swipeToCT:" destination="EDb-pL-uYx" id="KaW-7f-zXr"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="4069.5652173913045" y="-173.4375"/>
         </scene>
@@ -517,7 +534,7 @@
                                 <color key="textColor" red="0.86132794619999997" green="0.24934098120000001" blue="0.2069602311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T8t-Ng-sxq" userLabel="Txt Desc">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="T8t-Ng-sxq" userLabel="Txt Desc">
                                 <rect key="frame" x="158" y="185" width="226" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="Lcn-Oh-Zta"/>
@@ -525,7 +542,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="dd/mm/yyyy" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ITq-X2-VUW" userLabel="Txt Date">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="dd/mm/yyyy" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ITq-X2-VUW" userLabel="Txt Date">
                                 <rect key="frame" x="158" y="247" width="226" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="llR-xa-oUs"/>
@@ -533,7 +550,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="hh:mm:AM" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="inh-H0-8nY" userLabel="Txt StartT">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="hh:mm:AM" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="inh-H0-8nY" userLabel="Txt StartT">
                                 <rect key="frame" x="158" y="309" width="226" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="c8L-E9-dgW"/>
@@ -541,7 +558,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="hh:mm:PM" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pey-WA-GBy" userLabel="Txt EndT">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="hh:mm:PM" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="pey-WA-GBy" userLabel="Txt EndT">
                                 <rect key="frame" x="158" y="371" width="226" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="cDW-F0-doH"/>
@@ -569,6 +586,10 @@
                                             <constraint firstAttribute="width" constant="35" id="fVZ-bz-3eG"/>
                                         </constraints>
                                     </imageView>
+                                    <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R2U-oa-jQw" userLabel="ViewXamBenTrai">
+                                        <rect key="frame" x="0.0" y="0.0" width="207" height="45"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnu-ak-d4e" userLabel="Bt GetList">
                                         <rect key="frame" x="0.0" y="0.0" width="207" height="45"/>
                                         <connections>
@@ -581,8 +602,12 @@
                                     <constraint firstAttribute="trailing" secondItem="wnu-ak-d4e" secondAttribute="trailing" id="0QG-Xe-61F"/>
                                     <constraint firstAttribute="bottom" secondItem="wnu-ak-d4e" secondAttribute="bottom" id="0gp-55-7oS"/>
                                     <constraint firstItem="Uef-b3-xq2" firstAttribute="centerX" secondItem="gxm-wB-WS5" secondAttribute="centerX" id="GVa-V8-VcK"/>
+                                    <constraint firstAttribute="bottom" secondItem="R2U-oa-jQw" secondAttribute="bottom" id="IFm-cx-PdF"/>
                                     <constraint firstItem="wnu-ak-d4e" firstAttribute="leading" secondItem="gxm-wB-WS5" secondAttribute="leading" id="Mk4-b5-efq"/>
+                                    <constraint firstItem="R2U-oa-jQw" firstAttribute="top" secondItem="gxm-wB-WS5" secondAttribute="top" id="Ocm-sE-aue"/>
                                     <constraint firstAttribute="height" constant="45" id="RBK-e4-LDu"/>
+                                    <constraint firstItem="R2U-oa-jQw" firstAttribute="leading" secondItem="gxm-wB-WS5" secondAttribute="leading" id="ckF-Xd-X1I"/>
+                                    <constraint firstAttribute="trailing" secondItem="R2U-oa-jQw" secondAttribute="trailing" id="eO2-2r-gpO"/>
                                     <constraint firstItem="Uef-b3-xq2" firstAttribute="centerY" secondItem="gxm-wB-WS5" secondAttribute="centerY" id="mCA-VK-B0Q"/>
                                     <constraint firstItem="wnu-ak-d4e" firstAttribute="top" secondItem="gxm-wB-WS5" secondAttribute="top" id="xJ6-Ya-mQh"/>
                                 </constraints>
@@ -614,6 +639,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="ByB-wa-Nzm" firstAttribute="top" secondItem="Z1V-Nj-sOj" secondAttribute="bottom" constant="27" id="1Nd-bp-gNH"/>
                             <constraint firstItem="ByB-wa-Nzm" firstAttribute="height" secondItem="Z1V-Nj-sOj" secondAttribute="height" id="1W1-nB-iot"/>
@@ -657,6 +683,9 @@
                             <constraint firstItem="743-QD-eRt" firstAttribute="top" secondItem="f5R-rW-r5H" secondAttribute="bottom" constant="40" id="wKw-6v-ZmI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="o2L-zk-veJ"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="nVJ-pQ-faD" appends="YES" id="ysT-TS-ZUb"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" tag="1" title="CreateTask" image="create_list" id="09S-Qp-TTc"/>
                     <connections>
@@ -669,8 +698,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xoK-nL-6gc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="nVJ-pQ-faD">
+                    <connections>
+                        <action selector="swipeToTSList:" destination="3RT-0u-ldL" id="g8E-mn-Lpx"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4070" y="514"/>
+            <point key="canvasLocation" x="4069.5652173913045" y="513.61607142857144"/>
         </scene>
         <!--Filter-->
         <scene sceneID="rLo-RB-rjt">
