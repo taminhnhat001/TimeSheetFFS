@@ -18,6 +18,7 @@ class Home: UIViewController {
     @IBOutlet weak var lblTotalTask: UILabel!
     @IBOutlet weak var txtTotalDuration: UITextField!
     @IBOutlet weak var myTable: UITableView!
+    @IBOutlet weak var imgFilter: UIImageView!
     
     var h:Int = 0
     var m:Int = 0
@@ -27,6 +28,10 @@ class Home: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Đổi màu img Filter thành màu đỏ
+        imgFilter.image = imgFilter.image?.withRenderingMode(.alwaysTemplate)
+        imgFilter.tintColor = UIColor.red
+        
         lblHello.text = "Hello \(userName)"
         self.navigationItem.title = "TimeSheet"
         self.navigationItem.hidesBackButton = true

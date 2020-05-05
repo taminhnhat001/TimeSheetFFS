@@ -251,9 +251,19 @@ class CreateTask: UIViewController {
             present(alert, animated: true, completion: nil)
         return
         }
-        changeToStartEndTest()
-        descSelected = txtDesc.text ?? ""
-        setTimeSheet()
+        else {
+            changeToStartEndTest()
+            descSelected = txtDesc.text ?? ""
+            setTimeSheet()
+            let alert:UIAlertController = UIAlertController(title: "Thành công", message: "Thêm mới TimeSheet thành công", preferredStyle: UIAlertController.Style.alert)
+            let btnOk:UIAlertAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { (btn) in
+                let vc = self.navigationController?.viewControllers[1]
+                self.navigationController?.popToViewController(vc!, animated: true)
+            }
+            alert.addAction(btnOk)
+            present(alert, animated: true, completion: nil)
+        }
+        
     }
     
     func changeToStartEndTest() {

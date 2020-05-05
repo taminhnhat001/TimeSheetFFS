@@ -347,13 +347,12 @@
                                     <constraint firstAttribute="trailing" secondItem="8I0-YJ-b0r" secondAttribute="trailing" constant="8" id="rme-H1-S8c"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JhN-Aa-afp">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JhN-Aa-afp" userLabel="Bt Filter">
                                 <rect key="frame" x="275" y="51" width="26" height="26"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="26" id="UFp-L0-ZUj"/>
-                                    <constraint firstAttribute="height" constant="26" id="XDf-E9-qSY"/>
+                                    <constraint firstAttribute="height" constant="26" id="OGH-6d-n8K"/>
+                                    <constraint firstAttribute="width" constant="26" id="Sek-nn-KU5"/>
                                 </constraints>
-                                <state key="normal" image="ic_filter"/>
                                 <connections>
                                     <action selector="filter:" destination="EDb-pL-uYx" eventType="touchUpInside" id="Mrs-uA-8UI"/>
                                 </connections>
@@ -411,6 +410,13 @@
                                     <constraint firstAttribute="bottom" secondItem="CXK-u9-aAu" secondAttribute="bottom" id="hls-3v-Agk"/>
                                 </constraints>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_filter" translatesAutoresizingMaskIntoConstraints="NO" id="9eP-9y-kop">
+                                <rect key="frame" x="275" y="51" width="26" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26" id="1il-3r-V6G"/>
+                                    <constraint firstAttribute="width" constant="26" id="74Z-bP-iie"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <gestureRecognizers/>
@@ -421,17 +427,19 @@
                             <constraint firstItem="TkT-44-AlU" firstAttribute="trailing" secondItem="ZSd-zA-gWu" secondAttribute="trailing" id="6OH-s5-FM2"/>
                             <constraint firstItem="ZSd-zA-gWu" firstAttribute="leading" secondItem="TkT-44-AlU" secondAttribute="leading" id="6OP-gC-uxd"/>
                             <constraint firstItem="aTk-6L-Z80" firstAttribute="width" secondItem="onX-Cm-lZl" secondAttribute="width" multiplier="0.5" id="6qX-3y-3Cg"/>
-                            <constraint firstItem="roR-jm-vKv" firstAttribute="leading" secondItem="JhN-Aa-afp" secondAttribute="trailing" constant="35" id="AAN-Ue-r3H"/>
                             <constraint firstItem="aTk-6L-Z80" firstAttribute="leading" secondItem="TkT-44-AlU" secondAttribute="leading" id="AtN-gI-api"/>
-                            <constraint firstItem="JhN-Aa-afp" firstAttribute="centerY" secondItem="roR-jm-vKv" secondAttribute="centerY" id="FLh-OD-7m7"/>
+                            <constraint firstItem="9eP-9y-kop" firstAttribute="centerY" secondItem="roR-jm-vKv" secondAttribute="centerY" id="Bel-EI-Fnu"/>
                             <constraint firstItem="v1b-FK-Vur" firstAttribute="leading" secondItem="TkT-44-AlU" secondAttribute="leading" id="Fd6-el-DvE"/>
                             <constraint firstItem="0wp-e2-hak" firstAttribute="leading" secondItem="TkT-44-AlU" secondAttribute="leading" constant="8" id="JKQ-09-dXa"/>
                             <constraint firstItem="TkT-44-AlU" firstAttribute="trailing" secondItem="yll-VS-aLj" secondAttribute="trailing" id="MI8-wR-UNd"/>
                             <constraint firstItem="TkT-44-AlU" firstAttribute="trailing" secondItem="v1b-FK-Vur" secondAttribute="trailing" id="Or5-he-boJ"/>
+                            <constraint firstItem="JhN-Aa-afp" firstAttribute="centerX" secondItem="9eP-9y-kop" secondAttribute="centerX" id="SpB-Rv-2cu"/>
                             <constraint firstItem="ZSd-zA-gWu" firstAttribute="top" secondItem="0wp-e2-hak" secondAttribute="bottom" constant="5" id="kBz-cm-u9d"/>
                             <constraint firstItem="yll-VS-aLj" firstAttribute="bottom" secondItem="TkT-44-AlU" secondAttribute="bottom" id="qES-NO-lVc"/>
                             <constraint firstItem="0wp-e2-hak" firstAttribute="top" secondItem="TkT-44-AlU" secondAttribute="top" constant="5" id="qgu-wP-NAs"/>
                             <constraint firstItem="yll-VS-aLj" firstAttribute="width" secondItem="onX-Cm-lZl" secondAttribute="width" multiplier="0.5" id="qo5-4o-UpZ"/>
+                            <constraint firstItem="roR-jm-vKv" firstAttribute="leading" secondItem="9eP-9y-kop" secondAttribute="trailing" constant="35" id="s4V-uN-XZt"/>
+                            <constraint firstItem="JhN-Aa-afp" firstAttribute="centerY" secondItem="9eP-9y-kop" secondAttribute="centerY" id="sRr-37-VT9"/>
                             <constraint firstItem="aTk-6L-Z80" firstAttribute="top" secondItem="v1b-FK-Vur" secondAttribute="bottom" constant="10" id="vRp-6a-ZJZ"/>
                             <constraint firstItem="aTk-6L-Z80" firstAttribute="bottom" secondItem="TkT-44-AlU" secondAttribute="bottom" id="wqM-Ds-lHd"/>
                         </constraints>
@@ -442,6 +450,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="TimeSheet" image="get_list" id="arK-kS-8t9"/>
                     <connections>
+                        <outlet property="imgFilter" destination="9eP-9y-kop" id="eeK-CN-1Li"/>
                         <outlet property="lblHello" destination="0wp-e2-hak" id="TuH-CY-UmW"/>
                         <outlet property="lblTotalTask" destination="Bkc-AH-Faf" id="srv-zP-4ic"/>
                         <outlet property="myTable" destination="v1b-FK-Vur" id="rKE-Cy-WE7"/>
@@ -559,10 +568,11 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWU-Eu-QSY" userLabel="CreateTask">
-                                <rect key="frame" x="184" y="767" width="46" height="30"/>
+                                <rect key="frame" x="171" y="752" width="72" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Zg7-QH-PPK"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Create"/>
                                 <connections>
                                     <action selector="createTask:" destination="3RT-0u-ldL" eventType="touchUpInside" id="vr6-dB-cb4"/>
@@ -652,7 +662,7 @@
                             <constraint firstItem="ITq-X2-VUW" firstAttribute="centerY" secondItem="Prs-fB-sWw" secondAttribute="centerY" id="cbR-RQ-Lzx"/>
                             <constraint firstItem="Prs-fB-sWw" firstAttribute="leading" secondItem="zfm-lg-R9g" secondAttribute="leading" id="d8s-L3-0YW"/>
                             <constraint firstItem="ITq-X2-VUW" firstAttribute="leading" secondItem="T8t-Ng-sxq" secondAttribute="leading" id="dRc-mA-XBh"/>
-                            <constraint firstItem="gxm-wB-WS5" firstAttribute="top" secondItem="FWU-Eu-QSY" secondAttribute="bottom" constant="20" id="gKB-f9-9vL"/>
+                            <constraint firstItem="gxm-wB-WS5" firstAttribute="top" secondItem="FWU-Eu-QSY" secondAttribute="bottom" constant="35" id="gKB-f9-9vL"/>
                             <constraint firstItem="gxm-wB-WS5" firstAttribute="width" secondItem="vo3-v8-kUs" secondAttribute="width" multiplier="0.5" id="hsa-jC-RaJ"/>
                             <constraint firstItem="Z1V-Nj-sOj" firstAttribute="top" secondItem="o2L-zk-veJ" secondAttribute="top" constant="10" id="iRh-0C-JcL"/>
                             <constraint firstItem="inh-H0-8nY" firstAttribute="trailing" secondItem="Z1V-Nj-sOj" secondAttribute="trailing" id="k8O-Vz-PBW"/>
@@ -758,12 +768,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="30/01/2010" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EoW-Og-HUR" userLabel="Txt Tu ngay">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="30/01/2010" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EoW-Og-HUR" userLabel="Txt Tu ngay">
                                 <rect key="frame" x="175" y="52.5" width="219" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="30/01/2025" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tdz-Tf-05H" userLabel="Txt Den ngay">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="30/01/2025" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tdz-Tf-05H" userLabel="Txt Den ngay">
                                 <rect key="frame" x="175" y="113.5" width="219" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
