@@ -196,32 +196,59 @@ class Home: UIViewController {
     
     //Ra màn hình Tạo Create Task
     @IBAction func toCreateTask(_ sender: UIButton) {
-        isFilter = false
-        arrList.removeAll()
-        arrListFilterDate.removeAll()
-        arrListFilterTrangThaiDaDuyet.removeAll()
-        arrListFilterTrangThaiChuaDuyet.removeAll()
-        arrListFilterTrangThaiDong.removeAll()
-        arrListFilterDaDuyetChuaDuyet.removeAll()
-        arrListFilterDaDuyetDong.removeAll()
-        arrListFilterChuaDuyetDong.removeAll()
-        arrListFilterTrangThai.removeAll()
-        arrListFilterDaDuyetDuAn.removeAll()
-        arrListFilterChuaDuyetDuAn.removeAll()
-        arrListFilterDongDuAn.removeAll()
-        arrListFilterDuAnDaDuyet.removeAll()
-        arrListFilterDuAnChuaDuyet.removeAll()
-        arrListFilterDuAnDong.removeAll()
-        arrListFilterDaDuyetChuaDuyetDuAn.removeAll()
-        arrListFilterDaDuyetDongDuAn.removeAll()
-        arrListFilterChuaDuyetDongDuAn.removeAll()
-        arrListFilterTrangThaiDuAn.removeAll()
-        arrProjectNameFilterSelected.removeAll()
+//        isFilter = false
+//        arrList.removeAll()
+//        arrListFilterDate.removeAll()
+//        arrListFilterTrangThaiDaDuyet.removeAll()
+//        arrListFilterTrangThaiChuaDuyet.removeAll()
+//        arrListFilterTrangThaiDong.removeAll()
+//        arrListFilterDaDuyetChuaDuyet.removeAll()
+//        arrListFilterDaDuyetDong.removeAll()
+//        arrListFilterChuaDuyetDong.removeAll()
+//        arrListFilterTrangThai.removeAll()
+//        arrListFilterDaDuyetDuAn.removeAll()
+//        arrListFilterChuaDuyetDuAn.removeAll()
+//        arrListFilterDongDuAn.removeAll()
+//        arrListFilterDuAnDaDuyet.removeAll()
+//        arrListFilterDuAnChuaDuyet.removeAll()
+//        arrListFilterDuAnDong.removeAll()
+//        arrListFilterDaDuyetChuaDuyetDuAn.removeAll()
+//        arrListFilterDaDuyetDongDuAn.removeAll()
+//        arrListFilterChuaDuyetDongDuAn.removeAll()
+//        arrListFilterTrangThaiDuAn.removeAll()
+//        arrProjectNameFilterSelected.removeAll()
         let sb = UIStoryboard.init(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "CreateTask") as? CreateTask
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     
+    //SwipeGesture (Kéo về trái để chuyển sang CreateTask)
+    @IBAction func swipeToCT(_ sender: UISwipeGestureRecognizer) {
+//        isFilter = false
+//        arrList.removeAll()
+//        arrListFilterDate.removeAll()
+//        arrListFilterTrangThaiDaDuyet.removeAll()
+//        arrListFilterTrangThaiChuaDuyet.removeAll()
+//        arrListFilterTrangThaiDong.removeAll()
+//        arrListFilterDaDuyetChuaDuyet.removeAll()
+//        arrListFilterDaDuyetDong.removeAll()
+//        arrListFilterChuaDuyetDong.removeAll()
+//        arrListFilterTrangThai.removeAll()
+//        arrListFilterDaDuyetDuAn.removeAll()
+//        arrListFilterChuaDuyetDuAn.removeAll()
+//        arrListFilterDongDuAn.removeAll()
+//        arrListFilterDuAnDaDuyet.removeAll()
+//        arrListFilterDuAnChuaDuyet.removeAll()
+//        arrListFilterDuAnDong.removeAll()
+//        arrListFilterDaDuyetChuaDuyetDuAn.removeAll()
+//        arrListFilterDaDuyetDongDuAn.removeAll()
+//        arrListFilterChuaDuyetDongDuAn.removeAll()
+//        arrListFilterTrangThaiDuAn.removeAll()
+//        arrProjectNameFilterSelected.removeAll()
+        let sb = UIStoryboard.init(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "CreateTask") as? CreateTask
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
     
     //Log Out
     @IBAction func LogOut(_ sender: UIButton) {
@@ -252,34 +279,6 @@ class Home: UIViewController {
         session.flush {
             print("Session flush done")
         }
-    }
-    
-    //SwipeGesture (Kéo về trái để chuyển sang CreateTask)
-    @IBAction func swipeToCT(_ sender: UISwipeGestureRecognizer) {
-        isFilter = false
-        arrList.removeAll()
-        arrListFilterDate.removeAll()
-        arrListFilterTrangThaiDaDuyet.removeAll()
-        arrListFilterTrangThaiChuaDuyet.removeAll()
-        arrListFilterTrangThaiDong.removeAll()
-        arrListFilterDaDuyetChuaDuyet.removeAll()
-        arrListFilterDaDuyetDong.removeAll()
-        arrListFilterChuaDuyetDong.removeAll()
-        arrListFilterTrangThai.removeAll()
-        arrListFilterDaDuyetDuAn.removeAll()
-        arrListFilterChuaDuyetDuAn.removeAll()
-        arrListFilterDongDuAn.removeAll()
-        arrListFilterDuAnDaDuyet.removeAll()
-        arrListFilterDuAnChuaDuyet.removeAll()
-        arrListFilterDuAnDong.removeAll()
-        arrListFilterDaDuyetChuaDuyetDuAn.removeAll()
-        arrListFilterDaDuyetDongDuAn.removeAll()
-        arrListFilterChuaDuyetDongDuAn.removeAll()
-        arrListFilterTrangThaiDuAn.removeAll()
-        arrProjectNameFilterSelected.removeAll()
-        let sb = UIStoryboard.init(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "CreateTask") as? CreateTask
-        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
     func getList(apiKey: String) {

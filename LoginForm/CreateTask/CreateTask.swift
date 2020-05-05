@@ -243,13 +243,6 @@ class CreateTask: UIViewController {
         self.present(alertActionSheet, animated: true, completion: nil)
     }
     
-    //Ra màn hình Home get TimeSheet
-    @IBAction func toGetTimeSheet(_ sender: UIButton) {
-        let sb = UIStoryboard.init(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "Home") as? Home
-        self.navigationController?.customPushViewFromLeft(controller: vc!)
-    }
-    
     @IBAction func createTask(_ sender: UIButton) {
         if (txtDate.text == nil || txtStartT.text == "" || txtEndT.text == "") {
             let alert:UIAlertController = UIAlertController(title: "Không thành công", message: "Điền đầy đủ thông tin các trường Ngày, Giờ bắt đầu, Giờ kết thúc", preferredStyle: UIAlertController.Style.alert)
@@ -338,23 +331,16 @@ class CreateTask: UIViewController {
         task.resume()
     }
     
+    //Ra màn hình Home get TimeSheet
+    @IBAction func toGetTimeSheet(_ sender: UIButton) {
+        let vc = self.navigationController?.viewControllers[1]
+        self.navigationController?.popToViewController(vc!, animated: true)
+    }
+    
     //SwipeGesture (chuyển sang màn hình Home danh sách Time Sheet)
     @IBAction func swipeToTSList(_ sender: UISwipeGestureRecognizer) {
-        let sb = UIStoryboard.init(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "Home") as? Home
-        self.navigationController?.customPushViewFromLeft(controller: vc!)
+        let vc = self.navigationController?.viewControllers[1]
+        self.navigationController?.popToViewController(vc!, animated: true)
     }
 }
 
-//Custom thêm navigation controller: Khi push màn hình hướng sẽ là từ trái sang phải (mặc định là từ phải sang trái)
-extension UINavigationController {
-    func customPushViewFromLeft(controller: UIViewController) {
-        let transition: CATransition = CATransition()
-        transition.duration = 0.5
-        transition.type = CATransitionType.push
-        transition.subtype = CATransitionSubtype.fromLeft
-        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        view.window!.layer.add(transition, forKey: kCATransition)
-        pushViewController(controller, animated: false)
-    }
-}
