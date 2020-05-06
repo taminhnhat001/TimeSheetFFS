@@ -54,99 +54,128 @@ class Home: UIViewController {
             txtTotalDuration.placeholder = "\(h) : \(m)"
         }
         //Nếu lọc mỗi NGÀY thì:
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == false && isFilterDuAn == false) {
+        else if (isFilter == true && isFilterDate == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == false && isFilterDuAn == false) {
             lblTotalTask.text = "\(arrListFilterDate.count) task"
             h = secondsToHours(seconds: totalDurationFilter)
             m = secondsToMinutes(seconds: totalDurationFilter)
             txtTotalDuration.placeholder = "\(h) : \(m)"
         }
-        //Nếu lọc theo trạng thái ĐÃ DUYỆT thì:
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == false && isFilterDuAn == false ) {
+        //Nếu lọc theo trạng thái ĐÃ DUYỆT (không ngày) thì:
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == false && isFilterDuAn == false ) {
             lblTotalTask.text = "\(arrListFilterTrangThaiDaDuyet.count) task"
             h = secondsToHours(seconds: totalDurationFilter)
             m = secondsToMinutes(seconds: totalDurationFilter)
             txtTotalDuration.placeholder = "\(h) : \(m)"
         }
-        //Nếu lọc theo trạng thái CHƯA DUYỆT thì:
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == false && isFilterDuAn == false) {
+        //Nếu lọc theo trạng thái CHƯA DUYỆT (không ngày) thì:
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == false && isFilterDuAn == false) {
             lblTotalTask.text = "\(arrListFilterTrangThaiChuaDuyet.count) task"
             h = secondsToHours(seconds: totalDurationFilter)
             m = secondsToMinutes(seconds: totalDurationFilter)
             txtTotalDuration.placeholder = "\(h) : \(m)"
         }
             
-        //Nếu lọc theo trạng thái ĐÓNG thì:
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == true && isFilterDuAn == false) {
+        //Nếu lọc theo trạng thái ĐÓNG (không ngày)thì:
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == true && isFilterDuAn == false) {
             lblTotalTask.text = "\(arrListFilterTrangThaiDong.count) task"
             h = secondsToHours(seconds: totalDurationFilter)
             m = secondsToMinutes(seconds: totalDurationFilter)
             txtTotalDuration.placeholder = "\(h) : \(m)"
         }
-        //Nếu lọc theo tên DỰ ÁN thì (có ngày hoặc không đều được):
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == false && isFilterDuAn == true) {
+        //Nếu lọc theo tên DỰ ÁN (không ngày) thì:
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == false && isFilterDuAn == true) {
             lblTotalTask.text = "\(arrListFilterDuAn.count) task"
             h = secondsToHours(seconds: totalDurationFilter)
             m = secondsToMinutes(seconds: totalDurationFilter)
             txtTotalDuration.placeholder = "\(h) : \(m)"
         }
+        //Nếu lọc NGÀY + ĐÃ DUYỆT thì:
+        else if (isFilter == true && isFilterDate == true && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == false && isFilterDuAn == false ) {
+            lblTotalTask.text = "\(arrListFilterTrangThaiDaDuyet.count) task"
+            h = secondsToHours(seconds: totalDurationFilter)
+            m = secondsToMinutes(seconds: totalDurationFilter)
+            txtTotalDuration.placeholder = "\(h) : \(m)"
+        }
+        //Nếu lọc NGÀY + CHƯA DUYỆT thì:
+        else if (isFilter == true && isFilterDate == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == false && isFilterDuAn == false) {
+            lblTotalTask.text = "\(arrListFilterTrangThaiChuaDuyet.count) task"
+            h = secondsToHours(seconds: totalDurationFilter)
+            m = secondsToMinutes(seconds: totalDurationFilter)
+            txtTotalDuration.placeholder = "\(h) : \(m)"
+        }
+                
+        //Nếu lọc NGÀY + ĐÓNG thì:
+        else if (isFilter == true && isFilterDate == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == true && isFilterDuAn == false) {
+            lblTotalTask.text = "\(arrListFilterTrangThaiDong.count) task"
+            h = secondsToHours(seconds: totalDurationFilter)
+            m = secondsToMinutes(seconds: totalDurationFilter)
+            txtTotalDuration.placeholder = "\(h) : \(m)"
+        }
+        //Nếu lọc NGÀY + DỰ ÁN  thì:
+        else if (isFilter == true && isFilterDate == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == false && isFilterDuAn == true) {
+            lblTotalTask.text = "\(arrListFilterDuAn.count) task"
+            h = secondsToHours(seconds: totalDurationFilter)
+            m = secondsToMinutes(seconds: totalDurationFilter)
+            txtTotalDuration.placeholder = "\(h) : \(m)"
+            }
         //Nếu lọc ĐÃ DUYỆT + CHƯA DUYỆT
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == false && isFilterDuAn == false) {
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == false && isFilterDuAn == false) {
             lblTotalTask.text = "\(arrListFilterDaDuyetChuaDuyet.count) task"
             h = secondsToHours(seconds: totalDurationFilter)
             m = secondsToMinutes(seconds: totalDurationFilter)
             txtTotalDuration.placeholder = "\(h) : \(m)"
         }
         //Nếu lọc ĐÃ DUYỆT + ĐÓNG
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == true && isFilterDuAn == false) {
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == true && isFilterDuAn == false) {
             lblTotalTask.text = "\(arrListFilterDaDuyetDong.count) task"
             h = secondsToHours(seconds: totalDurationFilter)
             m = secondsToMinutes(seconds: totalDurationFilter)
             txtTotalDuration.placeholder = "\(h) : \(m)"
         }
         //Nếu lọc CHƯA DUYỆT + ĐÓNG
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == true && isFilterDuAn == false) {
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == true && isFilterDuAn == false) {
             lblTotalTask.text = "\(arrListFilterChuaDuyetDong.count) task"
             h = secondsToHours(seconds: totalDurationFilter)
             m = secondsToMinutes(seconds: totalDurationFilter)
             txtTotalDuration.placeholder = "\(h) : \(m)"
         }
         //Nếu lọc ĐÃ DUYỆT + DỰ ÁN
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == false && isFilterDuAn == true) {
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == false && isFilterDuAn == true) {
             lblTotalTask.text = "\(arrListFilterDuAnDaDuyet.count) task"
             h = secondsToHours(seconds: totalDurationFilter)
             m = secondsToMinutes(seconds: totalDurationFilter)
             txtTotalDuration.placeholder = "\(h) : \(m)"
         }
         //Nếu lọc CHƯA DUYỆT + DỰ ÁN
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == false && isFilterDuAn == true) {
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == false && isFilterDuAn == true) {
             lblTotalTask.text = "\(arrListFilterDuAnChuaDuyet.count) task"
             h = secondsToHours(seconds: totalDurationFilter)
             m = secondsToMinutes(seconds: totalDurationFilter)
             txtTotalDuration.placeholder = "\(h) : \(m)"
         }
         //Nếu lọc ĐÓNG + DỰ ÁN
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == true && isFilterDuAn == true) {
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == true && isFilterDuAn == true) {
             lblTotalTask.text = "\(arrListFilterDuAnDong.count) task"
             h = secondsToHours(seconds: totalDurationFilter)
             m = secondsToMinutes(seconds: totalDurationFilter)
             txtTotalDuration.placeholder = "\(h) : \(m)"
         }
         //Nếu lọc ĐÃ DUYỆT + CHƯA DUYỆT + DỰ ÁN
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == false && isFilterDuAn == true) {
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == false && isFilterDuAn == true) {
             lblTotalTask.text = "\(arrListFilterDaDuyetChuaDuyetDuAn.count) task"
             h = secondsToHours(seconds: totalDurationFilter)
             m = secondsToMinutes(seconds: totalDurationFilter)
             txtTotalDuration.placeholder = "\(h) : \(m)"
         }
         //Nếu lọc ĐÃ DUYỆT + ĐÓNG + DỰ ÁN
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == true && isFilterDuAn == true) {
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == true && isFilterDuAn == true) {
             lblTotalTask.text = "\(arrListFilterDaDuyetDongDuAn.count) task"
             h = secondsToHours(seconds: totalDurationFilter)
             m = secondsToMinutes(seconds: totalDurationFilter)
             txtTotalDuration.placeholder = "\(h) : \(m)"
         }
         //Nếu lọc CHƯA DUYỆT + ĐÓNG + DỰ ÁN
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == true && isFilterDuAn == true) {
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == true && isFilterDuAn == true) {
             lblTotalTask.text = "\(arrListFilterChuaDuyetDongDuAn.count) task"
             h = secondsToHours(seconds: totalDurationFilter)
             m = secondsToMinutes(seconds: totalDurationFilter)
@@ -154,35 +183,35 @@ class Home: UIViewController {
         }
             
         //Nếu lọc ĐÃ DUYỆT + CHƯA DUYỆT + ĐÓNG
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == true && isFilterDuAn == false) {
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == true && isFilterDuAn == false) {
                    lblTotalTask.text = "\(arrListFilterTrangThai.count) task"
                    h = secondsToHours(seconds: totalDurationFilter)
                    m = secondsToMinutes(seconds: totalDurationFilter)
                    txtTotalDuration.placeholder = "\(h) : \(m)"
         }
         //Nếu lọc ĐÃ DUYỆT + CHƯA DUYỆT + ĐÓNG + DỰ ÁN
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == true && isFilterDuAn == true) {
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == true && isFilterDuAn == true) {
             lblTotalTask.text = "\(arrListFilterTrangThaiDuAn.count) task"
             h = secondsToHours(seconds: totalDurationFilter)
             m = secondsToMinutes(seconds: totalDurationFilter)
             txtTotalDuration.placeholder = "\(h) : \(m)"
         }
         //Nếu lọc theo NGÀY + ĐÃ DUYỆT + DỰ ÁN:
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == false && isFilterDuAn == true) {
+        else if (isFilter == true && isFilterDate == true && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == false && isFilterDuAn == true) {
             lblTotalTask.text = "\(arrListFilterDaDuyetDuAn.count) task"
             h = secondsToHours(seconds: totalDurationFilter)
             m = secondsToMinutes(seconds: totalDurationFilter)
             txtTotalDuration.placeholder = "\(h) : \(m)"
         }
         //Nếu lọc theo NGÀY + CHƯA DUYỆT + DỰ ÁN:
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == false && isFilterDuAn == true) {
+        else if (isFilter == true && isFilterDate == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == false && isFilterDuAn == true) {
             lblTotalTask.text = "\(arrListFilterChuaDuyetDuAn.count) task"
             h = secondsToHours(seconds: totalDurationFilter)
             m = secondsToMinutes(seconds: totalDurationFilter)
             txtTotalDuration.placeholder = "\(h) : \(m)"
         }
         //Nếu lọc theo NGÀY + ĐÓNG + DỰ ÁN:
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == true && isFilterDuAn == true) {
+        else if (isFilter == true && isFilterDate == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == true && isFilterDuAn == true) {
             lblTotalTask.text = "\(arrListFilterDongDuAn.count) task"
             h = secondsToHours(seconds: totalDurationFilter)
             m = secondsToMinutes(seconds: totalDurationFilter)
@@ -201,27 +230,6 @@ class Home: UIViewController {
     
     //Ra màn hình Tạo Create Task
     @IBAction func toCreateTask(_ sender: UIButton) {
-//        isFilter = false
-//        arrList.removeAll()
-//        arrListFilterDate.removeAll()
-//        arrListFilterTrangThaiDaDuyet.removeAll()
-//        arrListFilterTrangThaiChuaDuyet.removeAll()
-//        arrListFilterTrangThaiDong.removeAll()
-//        arrListFilterDaDuyetChuaDuyet.removeAll()
-//        arrListFilterDaDuyetDong.removeAll()
-//        arrListFilterChuaDuyetDong.removeAll()
-//        arrListFilterTrangThai.removeAll()
-//        arrListFilterDaDuyetDuAn.removeAll()
-//        arrListFilterChuaDuyetDuAn.removeAll()
-//        arrListFilterDongDuAn.removeAll()
-//        arrListFilterDuAnDaDuyet.removeAll()
-//        arrListFilterDuAnChuaDuyet.removeAll()
-//        arrListFilterDuAnDong.removeAll()
-//        arrListFilterDaDuyetChuaDuyetDuAn.removeAll()
-//        arrListFilterDaDuyetDongDuAn.removeAll()
-//        arrListFilterChuaDuyetDongDuAn.removeAll()
-//        arrListFilterTrangThaiDuAn.removeAll()
-//        arrProjectNameFilterSelected.removeAll()
         let sb = UIStoryboard.init(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "CreateTask") as? CreateTask
         self.navigationController?.pushViewController(vc!, animated: true)
@@ -229,27 +237,6 @@ class Home: UIViewController {
     
     //SwipeGesture (Kéo về trái để chuyển sang CreateTask)
     @IBAction func swipeToCT(_ sender: UISwipeGestureRecognizer) {
-//        isFilter = false
-//        arrList.removeAll()
-//        arrListFilterDate.removeAll()
-//        arrListFilterTrangThaiDaDuyet.removeAll()
-//        arrListFilterTrangThaiChuaDuyet.removeAll()
-//        arrListFilterTrangThaiDong.removeAll()
-//        arrListFilterDaDuyetChuaDuyet.removeAll()
-//        arrListFilterDaDuyetDong.removeAll()
-//        arrListFilterChuaDuyetDong.removeAll()
-//        arrListFilterTrangThai.removeAll()
-//        arrListFilterDaDuyetDuAn.removeAll()
-//        arrListFilterChuaDuyetDuAn.removeAll()
-//        arrListFilterDongDuAn.removeAll()
-//        arrListFilterDuAnDaDuyet.removeAll()
-//        arrListFilterDuAnChuaDuyet.removeAll()
-//        arrListFilterDuAnDong.removeAll()
-//        arrListFilterDaDuyetChuaDuyetDuAn.removeAll()
-//        arrListFilterDaDuyetDongDuAn.removeAll()
-//        arrListFilterChuaDuyetDongDuAn.removeAll()
-//        arrListFilterTrangThaiDuAn.removeAll()
-//        arrProjectNameFilterSelected.removeAll()
         let sb = UIStoryboard.init(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "CreateTask") as? CreateTask
         self.navigationController?.pushViewController(vc!, animated: true)
@@ -362,79 +349,95 @@ extension Home:UITableViewDataSource {
             return arrList.count
         }
         //Nếu lọc mỗi NGÀY thì:
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == false && isFilterDuAn == false) {
+        else if (isFilter == true && isFilterDate == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == false && isFilterDuAn == false) {
             return arrListFilterDate.count
         }
-        //Nếu lọc theo trạng thái ĐÃ DUYỆT thì (Có cả trường hợp lọc thêm ngày hoặc không):
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == false && isFilterDuAn == false) {
+        //Nếu lọc theo trạng thái ĐÃ DUYỆT thì (không ngày):
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == false && isFilterDuAn == false) {
             return arrListFilterTrangThaiDaDuyet.count
         }
-        //Nếu lọc theo trạng thái CHƯA DUYỆT thì (Có cả trường hợp lọc thêm ngày hoặc không):
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == false && isFilterDuAn == false) {
+        //Nếu lọc theo trạng thái CHƯA DUYỆT thì (không ngày):
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == false && isFilterDuAn == false) {
             return arrListFilterTrangThaiChuaDuyet.count
         }
-        //Nếu lọc theo trạng thái ĐÓNG thì (Có cả trường hợp lọc thêm ngày hoặc không):
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == true && isFilterDuAn == false) {
+        //Nếu lọc theo trạng thái ĐÓNG thì (không ngày):
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == true && isFilterDuAn == false) {
             return arrListFilterTrangThaiDong.count
         }
-        //Nếu lọc mỗi tên PROJECT (Có cả trường hợp lọc thêm ngày hoặc không) thì:
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == false && isFilterDuAn == true) {
+        //Nếu lọc mỗi tên DỰ ÁN (không ngày ) thì:
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == false && isFilterDuAn == true) {
+            return arrListFilterDuAn.count
+        }
+        //Nếu lọc theo NGÀY + ĐÃ DUYỆT:
+        else if (isFilter == true && isFilterDate == true && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == false && isFilterDuAn == false) {
+            return arrListFilterTrangThaiDaDuyet.count
+        }
+        //Nếu lọc theo NGÀY + CHƯA DUYỆT:
+        else if (isFilter == true && isFilterDate == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == false && isFilterDuAn == false) {
+            return arrListFilterTrangThaiChuaDuyet.count
+        }
+        //Nếu lọc theo NGÀY + ĐÓNG:
+        else if (isFilter == true && isFilterDate == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == true && isFilterDuAn == false) {
+            return arrListFilterTrangThaiDong.count
+        }
+        //Nếu lọc theo NGÀY + DỰ ÁN:
+        else if (isFilter == true && isFilterDate == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == false && isFilterDuAn == true) {
             return arrListFilterDuAn.count
         }
         //Nếu lọc ĐÃ DUYỆT + CHƯA DUYỆT
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == false && isFilterDuAn == false) {
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == false && isFilterDuAn == false) {
             return arrListFilterDaDuyetChuaDuyet.count
         }
         //Nếu lọc ĐÃ DUYỆT + ĐÓNG
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == true && isFilterDuAn == false) {
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == true && isFilterDuAn == false) {
             return arrListFilterDaDuyetDong.count
         }
         //Nếu lọc CHƯA DUYỆT + ĐÓNG
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == true && isFilterDuAn == false) {
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == true && isFilterDuAn == false) {
             return arrListFilterChuaDuyetDong.count
         }
         //Nếu lọc ĐÃ DUYỆT + CHƯA DUYỆT + DỰ ÁN
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == false && isFilterDuAn == true) {
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == false && isFilterDuAn == true) {
             return arrListFilterDaDuyetChuaDuyetDuAn.count
         }
         //Nếu lọc ĐÃ DUYỆT + ĐÓNG + DỰ ÁN
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == true && isFilterDuAn == true) {
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == true && isFilterDuAn == true) {
             return arrListFilterDaDuyetDongDuAn.count
         }
         //Nếu lọc CHƯA DUYỆT + ĐÓNG + DỰ ÁN
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == true && isFilterDuAn == true) {
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == true && isFilterDuAn == true) {
             return arrListFilterChuaDuyetDongDuAn.count
         }
         //Nếu lọc ĐÃ DUYỆT + DỰ ÁN
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == false && isFilterDuAn == true) {
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == false && isFilterDuAn == true) {
             return arrListFilterDuAnDaDuyet.count
         }
         //Nếu lọc CHƯA DUYỆT + DỰ ÁN
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == false && isFilterDuAn == true) {
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == false && isFilterDuAn == true) {
             return arrListFilterDuAnChuaDuyet.count
         }
         //Nếu lọc ĐÓNG + DỰ ÁN
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == true && isFilterDuAn == true) {
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == true && isFilterDuAn == true) {
             return arrListFilterDuAnDong.count
         }
         //Nếy lọc ĐÃ DUYỆT + CHƯA DUYỆT + ĐÓNG
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == true && isFilterDuAn == false) {
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == true && isFilterDuAn == false) {
             return arrListFilterTrangThai.count
         }
         //Nếu lọc ĐÃ DUYỆT + CHƯA DUYỆT + ĐÓNG + DỰ ÁN
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == true && isFilterDuAn == true) {
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == true && isFilterDuAn == true) {
             return arrListFilterTrangThaiDuAn.count
         }
         //Nếu lọc NGÀY + ĐÃ DUYỆT + PROJECT thì:
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == false && isFilterDuAn == true) {
+        else if (isFilter == true && isFilterDate == true && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == false && isFilterDuAn == true) {
             return arrListFilterDaDuyetDuAn.count
         }
         //Nếu lọc NGÀY + CHƯA DUYỆT + PROJECT thì:
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == false && isFilterDuAn == true) {
+        else if (isFilter == true && isFilterDate == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == false && isFilterDuAn == true) {
             return arrListFilterChuaDuyetDuAn.count
         }
         //Nếu lọc NGÀY + ĐÓNG + PROJECT thì:
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == true && isFilterDuAn == true) {
+        else if (isFilter == true && isFilterDate == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == true && isFilterDuAn == true) {
             return arrListFilterDongDuAn.count
         }
         return 1
@@ -460,7 +463,7 @@ extension Home:UITableViewDataSource {
             }
         }
         //Nếu lọc mỗi NGÀY thì:
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == false && isFilterDuAn == false) {
+        else if (isFilter == true && isFilterDate == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == false && isFilterDuAn == false) {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "CellList", for: indexPath) as? CellList {
                 cell.durationTime.text = arrListFilterDate[indexPath.row].durationTime
                 cell.activityName.text = arrListFilterDate[indexPath.row].activityName
@@ -478,8 +481,8 @@ extension Home:UITableViewDataSource {
                 return cell
             }
         }
-        //Nếu lọc mỗi tên PROJECT thì:
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == false && isFilterDuAn == true) {
+        //Nếu lọc mỗi tên DỰ ÁN thì (không ngày):
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == false && isFilterDuAn == true) {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "CellList", for: indexPath) as? CellList {
                 cell.durationTime.text = arrListFilterDuAn[indexPath.row].durationTime
                 cell.activityName.text = arrListFilterDuAn[indexPath.row].activityName
@@ -497,8 +500,8 @@ extension Home:UITableViewDataSource {
                 return cell
             }
         }
-        //Nếu lọc theo trạng thái ĐÃ DUYỆT thì (Có cả trường hợp lọc thêm ngày hoặc không):
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == false && isFilterDuAn == false) {
+        //Nếu lọc theo trạng thái ĐÃ DUYỆT thì (không ngày):
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == false && isFilterDuAn == false) {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "CellList", for: indexPath) as? CellList {
                 cell.durationTime.text = arrListFilterTrangThaiDaDuyet[indexPath.row].durationTime
                 cell.activityName.text = arrListFilterTrangThaiDaDuyet[indexPath.row].activityName
@@ -511,8 +514,8 @@ extension Home:UITableViewDataSource {
                 return cell
             }
         }
-        //Nếu lọc theo trạng thái CHƯA DUYỆT thì (Có cả trường hợp lọc thêm ngày hoặc không):
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == false && isFilterDuAn == false) {
+        //Nếu lọc theo trạng thái CHƯA DUYỆT thì (không ngày):
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == false && isFilterDuAn == false) {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "CellList", for: indexPath) as? CellList {
                 cell.durationTime.text = arrListFilterTrangThaiChuaDuyet[indexPath.row].durationTime
                 cell.activityName.text = arrListFilterTrangThaiChuaDuyet[indexPath.row].activityName
@@ -525,8 +528,8 @@ extension Home:UITableViewDataSource {
                 return cell
             }
         }
-        //Nếu lọc theo trạng thái ĐÓNG thì (Có cả trường hợp lọc thêm ngày hoặc không):
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == true && isFilterDuAn == false) {
+        //Nếu lọc theo trạng thái ĐÓNG thì (không ngày):
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == true && isFilterDuAn == false) {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "CellList", for: indexPath) as? CellList {
                 cell.durationTime.text = arrListFilterTrangThaiDong[indexPath.row].durationTime
                 cell.activityName.text = arrListFilterTrangThaiDong[indexPath.row].activityName
@@ -539,8 +542,69 @@ extension Home:UITableViewDataSource {
                 return cell
             }
         }
+        //Nếu lọc NGÀY + DỰ ÁN:
+        else if (isFilter == true && isFilterDate == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == false && isFilterDuAn == true) {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "CellList", for: indexPath) as? CellList {
+                cell.durationTime.text = arrListFilterDuAn[indexPath.row].durationTime
+                cell.activityName.text = arrListFilterDuAn[indexPath.row].activityName
+                cell.descriptionName.text = arrListFilterDuAn[indexPath.row].descriptionName ?? "null"
+                cell.projectName.text = arrListFilterDuAn[indexPath.row].projectName
+                cell.DMY.text = arrListFilterDuAn[indexPath.row].dateMonthYear
+                cell.startTime.text = arrListFilterDuAn[indexPath.row].startTime
+                cell.endTime.text = arrListFilterDuAn[indexPath.row].endTime
+                //New review thi` view xanh, con` lai view do?
+            if (arrListFilterDuAn[indexPath.row].status == "Reviewed") {
+                cell.viewStatus.backgroundColor = UIColor(red: 117/255, green: 209/255, blue: 252/255, alpha: 1)
+            } else {
+                cell.viewStatus.backgroundColor = UIColor(red: 220/255, green: 64/255, blue: 53/255, alpha: 1)
+            }
+            return cell
+            }
+        }
+        //Nếu lọc NGÀY + ĐÃ DUYỆT:
+        else if (isFilter == true && isFilterDate == true && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == false && isFilterDuAn == false) {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "CellList", for: indexPath) as? CellList {
+                cell.durationTime.text = arrListFilterTrangThaiDaDuyet[indexPath.row].durationTime
+                cell.activityName.text = arrListFilterTrangThaiDaDuyet[indexPath.row].activityName
+                cell.descriptionName.text = arrListFilterTrangThaiDaDuyet[indexPath.row].descriptionName ?? "null"
+                cell.projectName.text = arrListFilterTrangThaiDaDuyet[indexPath.row].projectName
+                cell.DMY.text = arrListFilterTrangThaiDaDuyet[indexPath.row].dateMonthYear
+                cell.startTime.text = arrListFilterTrangThaiDaDuyet[indexPath.row].startTime
+                cell.endTime.text = arrListFilterTrangThaiDaDuyet[indexPath.row].endTime
+                cell.viewStatus.backgroundColor = UIColor(red: 117/255, green: 209/255, blue: 252/255, alpha: 1)
+                return cell
+            }
+        }
+        //Nếu lọc NGÀY + CHƯA DUYỆT:
+        else if (isFilter == true && isFilterDate == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == false && isFilterDuAn == false) {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "CellList", for: indexPath) as? CellList {
+                cell.durationTime.text = arrListFilterTrangThaiChuaDuyet[indexPath.row].durationTime
+                cell.activityName.text = arrListFilterTrangThaiChuaDuyet[indexPath.row].activityName
+                cell.descriptionName.text = arrListFilterTrangThaiChuaDuyet[indexPath.row].descriptionName ?? "null"
+                cell.projectName.text = arrListFilterTrangThaiChuaDuyet[indexPath.row].projectName
+                cell.DMY.text = arrListFilterTrangThaiChuaDuyet[indexPath.row].dateMonthYear
+                cell.startTime.text = arrListFilterTrangThaiChuaDuyet[indexPath.row].startTime
+                cell.endTime.text = arrListFilterTrangThaiChuaDuyet[indexPath.row].endTime
+                cell.viewStatus.backgroundColor = UIColor(red: 220/255, green: 64/255, blue: 53/255, alpha: 1)
+                return cell
+                }
+            }
+        //Nếu lọc NGÀY + ĐÓNG:
+        else if (isFilter == true && isFilterDate == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == true && isFilterDuAn == false) {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "CellList", for: indexPath) as? CellList {
+                cell.durationTime.text = arrListFilterTrangThaiDong[indexPath.row].durationTime
+                cell.activityName.text = arrListFilterTrangThaiDong[indexPath.row].activityName
+                cell.descriptionName.text = arrListFilterTrangThaiDong[indexPath.row].descriptionName ?? "null"
+                cell.projectName.text = arrListFilterTrangThaiDong[indexPath.row].projectName
+                cell.DMY.text = arrListFilterTrangThaiDong[indexPath.row].dateMonthYear
+                cell.startTime.text = arrListFilterTrangThaiDong[indexPath.row].startTime
+                cell.endTime.text = arrListFilterTrangThaiDong[indexPath.row].endTime
+                cell.viewStatus.backgroundColor = UIColor(red: 220/255, green: 64/255, blue: 53/255, alpha: 1)
+                return cell
+                }
+            }
         //Nếu lọc ĐÃ DUYỆT + CHƯA DUYỆT
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == false && isFilterDuAn == false) {
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == false && isFilterDuAn == false) {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "CellList", for: indexPath) as? CellList {
                 cell.durationTime.text = arrListFilterDaDuyetChuaDuyet[indexPath.row].durationTime
                 cell.activityName.text = arrListFilterDaDuyetChuaDuyet[indexPath.row].activityName
@@ -559,7 +623,7 @@ extension Home:UITableViewDataSource {
             }
         }
         //Nếu lọc ĐÃ DUYỆT + ĐÓNG
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == true && isFilterDuAn == false) {
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == true && isFilterDuAn == false) {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "CellList", for: indexPath) as? CellList {
                 cell.durationTime.text = arrListFilterDaDuyetDong[indexPath.row].durationTime
                 cell.activityName.text = arrListFilterDaDuyetDong[indexPath.row].activityName
@@ -578,7 +642,7 @@ extension Home:UITableViewDataSource {
             }
         }
         //Nếu lọc CHƯA DUYỆT + ĐÓNG
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == true && isFilterDuAn == false) {
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == true && isFilterDuAn == false) {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "CellList", for: indexPath) as? CellList {
                 cell.durationTime.text = arrListFilterChuaDuyetDong[indexPath.row].durationTime
                 cell.activityName.text = arrListFilterChuaDuyetDong[indexPath.row].activityName
@@ -592,7 +656,7 @@ extension Home:UITableViewDataSource {
             }
         }
         //Nếu lọc ĐÃ DUYỆT + DỰ ÁN
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == false && isFilterDuAn == true) {
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == false && isFilterDuAn == true) {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "CellList", for: indexPath) as? CellList {
                 cell.durationTime.text = arrListFilterDuAnDaDuyet[indexPath.row].durationTime
                 cell.activityName.text = arrListFilterDuAnDaDuyet[indexPath.row].activityName
@@ -606,7 +670,7 @@ extension Home:UITableViewDataSource {
             }
         }
         //Nếu lọc CHƯA DUYỆT + DỰ ÁN
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == false && isFilterDuAn == true) {
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == false && isFilterDuAn == true) {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "CellList", for: indexPath) as? CellList {
                 cell.durationTime.text = arrListFilterDuAnChuaDuyet[indexPath.row].durationTime
                 cell.activityName.text = arrListFilterDuAnChuaDuyet[indexPath.row].activityName
@@ -620,7 +684,7 @@ extension Home:UITableViewDataSource {
             }
         }
         //Nếu lọc ĐÓNG + DỰ ÁN
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == true && isFilterDuAn == true) {
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == true && isFilterDuAn == true) {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "CellList", for: indexPath) as? CellList {
                 cell.durationTime.text = arrListFilterDuAnDong[indexPath.row].durationTime
                 cell.activityName.text = arrListFilterDuAnDong[indexPath.row].activityName
@@ -634,7 +698,7 @@ extension Home:UITableViewDataSource {
             }
         }
         //Nếu lọc ĐÃ DUYỆT + CHƯA DUYỆT + DỰ ÁN
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == false && isFilterDuAn == true) {
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == false && isFilterDuAn == true) {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "CellList", for: indexPath) as? CellList {
                 cell.durationTime.text = arrListFilterDaDuyetChuaDuyetDuAn[indexPath.row].durationTime
                 cell.activityName.text = arrListFilterDaDuyetChuaDuyetDuAn[indexPath.row].activityName
@@ -653,7 +717,7 @@ extension Home:UITableViewDataSource {
             }
         }
         //Nếu lọc ĐÃ DUYỆT + ĐÓNG + DỰ ÁN
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == true && isFilterDuAn == true) {
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == true && isFilterDuAn == true) {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "CellList", for: indexPath) as? CellList {
                 cell.durationTime.text = arrListFilterDaDuyetDongDuAn[indexPath.row].durationTime
                 cell.activityName.text = arrListFilterDaDuyetDongDuAn[indexPath.row].activityName
@@ -672,7 +736,7 @@ extension Home:UITableViewDataSource {
             }
         }
         //Nếu lọc CHƯA DUYỆT + ĐÓNG + DỰ ÁN
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == true && isFilterDuAn == true) {
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == true && isFilterDuAn == true) {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "CellList", for: indexPath) as? CellList {
                 cell.durationTime.text = arrListFilterChuaDuyetDongDuAn[indexPath.row].durationTime
                 cell.activityName.text = arrListFilterChuaDuyetDongDuAn[indexPath.row].activityName
@@ -686,7 +750,7 @@ extension Home:UITableViewDataSource {
             }
         }
         //Nếy lọc ĐÃ DUYỆT + CHƯA DUYỆT + ĐÓNG
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == true && isFilterDuAn == false) {
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == true && isFilterDuAn == false) {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "CellList", for: indexPath) as? CellList {
                 cell.durationTime.text = arrListFilterTrangThai[indexPath.row].durationTime
                 cell.activityName.text = arrListFilterTrangThai[indexPath.row].activityName
@@ -705,7 +769,7 @@ extension Home:UITableViewDataSource {
             }
         }
         //Nếu lọc ĐÃ DUYỆT + CHƯA DUYỆT + ĐÓNG + DỰ ÁN
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == true && isFilterDuAn == true) {
+        else if (isFilter == true && isFilterDate == false && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == true && isFilterDuAn == true) {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "CellList", for: indexPath) as? CellList {
                 cell.durationTime.text = arrListFilterTrangThaiDuAn[indexPath.row].durationTime
                 cell.activityName.text = arrListFilterTrangThaiDuAn[indexPath.row].activityName
@@ -724,7 +788,7 @@ extension Home:UITableViewDataSource {
             }
         }
         //Nếu lọc NGÀY + ĐÃ DUYỆT + PROJECT:
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == false && isFilterDuAn == true) {
+        else if (isFilter == true && isFilterDate == true && isFilterTrangThaiDaDuyet == true && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == false && isFilterDuAn == true) {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "CellList", for: indexPath) as? CellList {
                 cell.durationTime.text = arrListFilterDaDuyetDuAn[indexPath.row].durationTime
                 cell.activityName.text = arrListFilterDaDuyetDuAn[indexPath.row].activityName
@@ -738,7 +802,7 @@ extension Home:UITableViewDataSource {
             }
         }
         //Nếu lọc NGÀY + CHƯA DUYỆT + PROJECT:
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == false && isFilterDuAn == true) {
+        else if (isFilter == true && isFilterDate == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == true && isFilterTrangThaiDong == false && isFilterDuAn == true) {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "CellList", for: indexPath) as? CellList {
                 cell.durationTime.text = arrListFilterChuaDuyetDuAn[indexPath.row].durationTime
                 cell.activityName.text = arrListFilterChuaDuyetDuAn[indexPath.row].activityName
@@ -752,7 +816,7 @@ extension Home:UITableViewDataSource {
             }
         }
         //Nếu lọc NGÀY + ĐÓNG + PROJECT:
-        else if (isFilter == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == true  && isFilterDuAn == true) {
+        else if (isFilter == true && isFilterDate == true && isFilterTrangThaiDaDuyet == false && isFilterTrangThaiChuaDuyet == false && isFilterTrangThaiDong == true  && isFilterDuAn == true) {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "CellList", for: indexPath) as? CellList {
                 cell.durationTime.text = arrListFilterDongDuAn[indexPath.row].durationTime
                 cell.activityName.text = arrListFilterDongDuAn[indexPath.row].activityName

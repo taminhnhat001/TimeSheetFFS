@@ -34,6 +34,7 @@ var arrListFilterDongDuAn:[List] = [] // Mảng lọc. theo NGÀY + ĐÓNG + D�
 
 var totalDurationFilter:Int = 0
 
+var isFilterDate:Bool = false
 var isFilterTrangThaiDaDuyet:Bool = false
 var isFilterTrangThaiChuaDuyet:Bool = false
 var isFilterTrangThaiDong:Bool = false
@@ -130,8 +131,8 @@ class Filter: UIViewController {
         view.endEditing(true)
     }
     
-    func filterList() { //asdasd
-        //KHÔNG LỌC GÌ
+    func filterList() {
+        //KHÔNG LỌC GÌ (1)
         if ((txtTuNgay.text == "" ||
             txtDenNgay.text == "") &&
             bt_T_DaDuyet.isHidden == true &&
@@ -141,9 +142,10 @@ class Filter: UIViewController {
             return
         }
         
-        //Lọc theo mỗi tên của PROJECT:
+        //Lọc theo mỗi tên của PROJECT: (2)
         if (txtTuNgay.text == "" && txtDenNgay.text == "" && bt_T_DaDuyet.isHidden == true && bt_T_ChuaDuyet.isHidden == true && bt_T_Dong.isHidden == true) {
             isFilter = true
+            isFilterDate = false
             isFilterTrangThaiDaDuyet = false
             isFilterTrangThaiChuaDuyet = false
             isFilterTrangThaiDong = false
@@ -160,9 +162,10 @@ class Filter: UIViewController {
             return
         }
         
-        //Lọc theo mỗi trạng thái ĐÃ DUYỆT:
+        //Lọc theo mỗi trạng thái ĐÃ DUYỆT: (3)
         if (txtTuNgay.text == "" && txtDenNgay.text == "" && bt_T_DaDuyet.isHidden == false && bt_T_ChuaDuyet.isHidden == true && bt_T_Dong.isHidden == true && arrProjectNameFilterSelected.isEmpty == true) {
             isFilter = true
+            isFilterDate = false
             isFilterTrangThaiDaDuyet = true
             isFilterTrangThaiChuaDuyet = false
             isFilterTrangThaiDong = false
@@ -177,11 +180,12 @@ class Filter: UIViewController {
             return
         }
         
-        //Lọc theo mỗi trạng thái CHƯA DUYỆT:
-        if (txtTuNgay.text == "" && txtDenNgay.text == "" && bt_T_ChuaDuyet.isHidden == false && bt_T_DaDuyet.isHidden == true && bt_T_Dong.isHidden == true && arrProjectNameFilterSelected.isEmpty == true) {
+        //Lọc theo mỗi trạng thái CHƯA DUYỆT: (4)
+        if (txtTuNgay.text == "" && txtDenNgay.text == "" && bt_T_DaDuyet.isHidden == true && bt_T_ChuaDuyet.isHidden == false && bt_T_Dong.isHidden == true && arrProjectNameFilterSelected.isEmpty == true) {
             isFilter = true
-            isFilterTrangThaiChuaDuyet = true
+            isFilterDate = false
             isFilterTrangThaiDaDuyet = false
+            isFilterTrangThaiChuaDuyet = true
             isFilterTrangThaiDong = false
             isFilterDuAn = false
             totalDurationFilter = 0
@@ -194,9 +198,10 @@ class Filter: UIViewController {
             return
         }
         
-        //Lọc theo mỗi trạng thái ĐÓNG:
+        //Lọc theo mỗi trạng thái ĐÓNG: (5)
         if (txtTuNgay.text == "" && txtDenNgay.text == "" && bt_T_DaDuyet.isHidden == true && bt_T_ChuaDuyet.isHidden == true && bt_T_Dong.isHidden == false && arrProjectNameFilterSelected.isEmpty == true) {
             isFilter = true
+            isFilterDate = false
             isFilterTrangThaiDaDuyet = false
             isFilterTrangThaiChuaDuyet = false
             isFilterTrangThaiDong = true
@@ -211,9 +216,10 @@ class Filter: UIViewController {
             return
         }
         
-        //Lọc theo ĐÃ DUYỆT + CHƯA DUYỆT:
+        //Lọc theo ĐÃ DUYỆT + CHƯA DUYỆT: (6)
         if (txtTuNgay.text == "" && txtDenNgay.text == "" && bt_T_DaDuyet.isHidden == false && bt_T_ChuaDuyet.isHidden == false && bt_T_Dong.isHidden == true) {
             isFilter = true
+            isFilterDate = false
             isFilterTrangThaiDaDuyet = true
             isFilterTrangThaiChuaDuyet = true
             isFilterTrangThaiDong = false
@@ -225,7 +231,7 @@ class Filter: UIViewController {
                     totalDurationFilter += listFilterTrangThaiDaDuyetChuaDuyet.duration ?? 0
                 }
             }
-            //Lọc theo ĐÃ DUYỆT + CHƯA DUYỆT + DỰ ÁN
+            //Lọc theo ĐÃ DUYỆT + CHƯA DUYỆT + DỰ ÁN (7)
             if (arrProjectNameFilterSelected.isEmpty == false) {
                 isFilterDuAn = true
                 totalDurationFilter = 0
@@ -242,9 +248,10 @@ class Filter: UIViewController {
             return
         }
         
-        //Lọc theo ĐÃ DUYỆT + ĐÓNG:
+        //Lọc theo ĐÃ DUYỆT + ĐÓNG: (8)
         if (txtTuNgay.text == "" && txtDenNgay.text == "" && bt_T_DaDuyet.isHidden == false && bt_T_ChuaDuyet.isHidden == true && bt_T_Dong.isHidden == false) {
             isFilter = true
+            isFilterDate = false
             isFilterTrangThaiDaDuyet = true
             isFilterTrangThaiChuaDuyet = false
             isFilterTrangThaiDong = true
@@ -256,7 +263,7 @@ class Filter: UIViewController {
                     totalDurationFilter += listFilterTrangThaiDaDuyetDong.duration ?? 0
                 }
             }
-            //Lọc theo ĐÃ DUYỆT + ĐÓNG + DỰ ÁN
+            //Lọc theo ĐÃ DUYỆT + ĐÓNG + DỰ ÁN (9)
             if (arrProjectNameFilterSelected.isEmpty == false) {
                 isFilterDuAn = true
                 totalDurationFilter = 0
@@ -273,9 +280,10 @@ class Filter: UIViewController {
             return
         }
         
-        //Lọc theo CHƯA DUYỆT + ĐÓNG:
+        //Lọc theo CHƯA DUYỆT + ĐÓNG: (10)
         if (txtTuNgay.text == "" && txtDenNgay.text == "" && bt_T_DaDuyet.isHidden == true && bt_T_ChuaDuyet.isHidden == false && bt_T_Dong.isHidden == false) {
             isFilter = true
+            isFilterDate = false
             isFilterTrangThaiDaDuyet = false
             isFilterTrangThaiChuaDuyet = true
             isFilterTrangThaiDong = true
@@ -287,7 +295,7 @@ class Filter: UIViewController {
                     totalDurationFilter += listFilterTrangThaiChuaDuyetDong.duration ?? 0
                 }
             }
-            //Lọc theo CHƯA DUYỆT + ĐÓNG + DỰ ÁN
+            //Lọc theo CHƯA DUYỆT + ĐÓNG + DỰ ÁN (11)
             if (arrProjectNameFilterSelected.isEmpty == false) {
                 isFilterDuAn = true
                 totalDurationFilter = 0
@@ -304,9 +312,10 @@ class Filter: UIViewController {
             return
         }
         
-        //Lọc theo ĐÃ DUYỆT + CHƯA DUYỆT + ĐÓNG:
+        //Lọc theo ĐÃ DUYỆT + CHƯA DUYỆT + ĐÓNG: (12)
         if (txtTuNgay.text == "" && txtDenNgay.text == "" && bt_T_DaDuyet.isHidden == false && bt_T_ChuaDuyet.isHidden == false && bt_T_Dong.isHidden == false) {
             isFilter = true
+            isFilterDate = false
             isFilterTrangThaiDaDuyet = true
             isFilterTrangThaiChuaDuyet = true
             isFilterTrangThaiDong = true
@@ -318,6 +327,7 @@ class Filter: UIViewController {
                     totalDurationFilter += listFilterTrangThai.duration ?? 0
                 }
             }
+            //Lọc theo ĐÃ DUYỆT + CHƯA DUYỆT + ĐÓNG + DỰ ÁN (13)
             if (arrProjectNameFilterSelected.isEmpty == false) {
                 isFilterDuAn = true
                 totalDurationFilter = 0
@@ -333,9 +343,10 @@ class Filter: UIViewController {
             }
             return
         }
-        //Lọc theo ĐÃ DUYỆT + DỰ ÁN
+        //Lọc theo ĐÃ DUYỆT + DỰ ÁN (14)
         if (txtTuNgay.text == "" && txtDenNgay.text == "" && bt_T_DaDuyet.isHidden == false && bt_T_ChuaDuyet.isHidden == true && bt_T_Dong.isHidden == true && arrProjectNameFilterSelected.isEmpty == false) {
             isFilter = true
+            isFilterDate = false
             isFilterTrangThaiDaDuyet = true
             isFilterTrangThaiChuaDuyet = false
             isFilterTrangThaiDong = false
@@ -351,9 +362,10 @@ class Filter: UIViewController {
             }
             return
         }
-        //Lọc theo CHƯA DUYỆT + DỰ ÁN
+        //Lọc theo CHƯA DUYỆT + DỰ ÁN (15)
         if (txtTuNgay.text == "" && txtDenNgay.text == "" && bt_T_DaDuyet.isHidden == true && bt_T_ChuaDuyet.isHidden == false && bt_T_Dong.isHidden == true && arrProjectNameFilterSelected.isEmpty == false) {
             isFilter = true
+            isFilterDate = false
             isFilterTrangThaiDaDuyet = false
             isFilterTrangThaiChuaDuyet = true
             isFilterTrangThaiDong = false
@@ -369,9 +381,10 @@ class Filter: UIViewController {
             }
             return
         }
-        //Lọc theo ĐÓNG + DỰ ÁN
+        //Lọc theo ĐÓNG + DỰ ÁN (16)
         if (txtTuNgay.text == "" && txtDenNgay.text == "" && bt_T_DaDuyet.isHidden == true && bt_T_ChuaDuyet.isHidden == true && bt_T_Dong.isHidden == false && arrProjectNameFilterSelected.isEmpty == false) {
             isFilter = true
+            isFilterDate = false
             isFilterTrangThaiDaDuyet = false
             isFilterTrangThaiChuaDuyet = false
             isFilterTrangThaiDong = true
@@ -405,11 +418,13 @@ class Filter: UIViewController {
         let timeKetThucInt:Int = Int(timeKetThuc!)
         
         isFilter = true
+        isFilterDate = true
         isFilterTrangThaiDaDuyet = false
         isFilterTrangThaiChuaDuyet = false
         isFilterTrangThaiDong = false
         isFilterDuAn = false
         
+        //Lọc theo mỗi Ngày: (17)
         for listFilterDate in arrList {
             if (listFilterDate.dateInt! > timeBatDauInt) && (listFilterDate.dateInt! < timeKetThucInt) {
                 arrListFilterDate.append(listFilterDate)
@@ -417,9 +432,10 @@ class Filter: UIViewController {
             }
         }
         
-        // Lọc theo NGÀY + DỰ ÁN:
+        // Lọc theo NGÀY + DỰ ÁN: (18)
         if (bt_T_DaDuyet.isHidden == true && bt_T_ChuaDuyet.isHidden == true && bt_T_Dong.isHidden == true && arrProjectNameFilterSelected.isEmpty == false) {
             isFilter = true
+            isFilterDate = true
             isFilterTrangThaiDaDuyet = false
             isFilterTrangThaiChuaDuyet = false
             isFilterTrangThaiDong = false
@@ -436,9 +452,10 @@ class Filter: UIViewController {
             return
         }
         
-        // Lọc theo NGÀY + Trạng thái ĐÃ DUYỆT:
+        // Lọc theo NGÀY + Trạng thái ĐÃ DUYỆT: (19)
         if (bt_T_DaDuyet.isHidden == false && bt_T_ChuaDuyet.isHidden == true && bt_T_Dong.isHidden == true && arrProjectNameFilterSelected.isEmpty == true) {
             isFilter = true
+            isFilterDate = true
             isFilterTrangThaiDaDuyet = true
             isFilterTrangThaiChuaDuyet = false
             isFilterTrangThaiDong = false
@@ -453,9 +470,10 @@ class Filter: UIViewController {
             return
         }
         
-        // Lọc theo NGÀY + Trạng thái CHƯA DUYỆT:
+        // Lọc theo NGÀY + Trạng thái CHƯA DUYỆT: (20)
         if (bt_T_DaDuyet.isHidden == true && bt_T_ChuaDuyet.isHidden == false && bt_T_Dong.isHidden == true && arrProjectNameFilterSelected.isEmpty == true) {
             isFilter = true
+            isFilterDate = true
             isFilterTrangThaiChuaDuyet = true
             isFilterTrangThaiDaDuyet = false
             isFilterTrangThaiDong = false
@@ -470,9 +488,10 @@ class Filter: UIViewController {
             return
         }
         
-        //Lọc theo NGÀY + trạng thái ĐÓNG:
+        //Lọc theo NGÀY + trạng thái ĐÓNG: (21)
         if (bt_T_ChuaDuyet.isHidden == true && bt_T_DaDuyet.isHidden == true && bt_T_Dong.isHidden == false && arrProjectNameFilterSelected.isEmpty == true) {
             isFilter = true
+            isFilterDate = true
             isFilterTrangThaiDaDuyet = false
             isFilterTrangThaiChuaDuyet = false
             isFilterTrangThaiDong = true
@@ -487,9 +506,10 @@ class Filter: UIViewController {
             return
         }
         
-        // Lọc theo NGÀY + ĐÃ DUYỆT + PROJECT:
+        // Lọc theo NGÀY + ĐÃ DUYỆT + PROJECT: (22)
         if (bt_T_DaDuyet.isHidden == false && bt_T_ChuaDuyet.isHidden == true && bt_T_Dong.isHidden == true && arrProjectNameFilterSelected.isEmpty == false) {
             isFilter = true
+            isFilterDate = true
             isFilterTrangThaiDaDuyet = true
             isFilterTrangThaiChuaDuyet = false
             isFilterTrangThaiDong = false
@@ -506,9 +526,10 @@ class Filter: UIViewController {
             return
         }
         
-        // Lọc theo NGÀY + CHƯA DUYỆT + PROJECT:
+        // Lọc theo NGÀY + CHƯA DUYỆT + PROJECT: (23)
         if (bt_T_ChuaDuyet.isHidden == false && bt_T_DaDuyet.isHidden == true && bt_T_Dong.isHidden == true && arrProjectNameFilterSelected.isEmpty == false) {
             isFilter = true
+            isFilterDate = true
             isFilterTrangThaiDaDuyet = false
             isFilterTrangThaiChuaDuyet = true
             isFilterTrangThaiDong = false
@@ -525,9 +546,10 @@ class Filter: UIViewController {
             return 
         }
         
-        //Lọc theo NGÀY + ĐÓNG + PROJECT:
+        //Lọc theo NGÀY + ĐÓNG + PROJECT: (24)
         if (bt_T_ChuaDuyet.isHidden == true && bt_T_DaDuyet.isHidden == true && bt_T_Dong.isHidden == false && arrProjectNameFilterSelected.isEmpty == false) {
             isFilter = true
+            isFilterDate = true
             isFilterTrangThaiDaDuyet = false
             isFilterTrangThaiChuaDuyet = false
             isFilterTrangThaiDong = true
