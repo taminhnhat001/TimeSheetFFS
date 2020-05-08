@@ -430,6 +430,15 @@ class Filter: UIViewController {
                 arrListFilterDate.append(listFilterDate)
                 totalDurationFilter += listFilterDate.duration ?? 0
             }
+            if (timeKetThucInt <= timeBatDauInt) {
+                let alertController:UIAlertController = UIAlertController(title: "Lỗi tìm ngày", message: "Ngày bắt đầu không thể giống hoặc sau ngày kết thúc. Vui lòng nhập lại", preferredStyle: .alert)
+                let btnOk:UIAlertAction = UIAlertAction(title: "Ok", style: .default) { (btn) in
+                    self.txtTuNgay.text = ""
+                    self.txtDenNgay.text = ""
+                }
+                alertController.addAction(btnOk)
+                present(alertController, animated: true, completion: nil)
+            }
         }
         
         // Lọc theo NGÀY + DỰ ÁN: (18)
@@ -506,7 +515,7 @@ class Filter: UIViewController {
             return
         }
         
-        // Lọc theo NGÀY + ĐÃ DUYỆT + PROJECT: (22)
+        // Lọc theo NGÀY + ĐÃ DUYỆT + DỰ ÁN: (22)
         if (bt_T_DaDuyet.isHidden == false && bt_T_ChuaDuyet.isHidden == true && bt_T_Dong.isHidden == true && arrProjectNameFilterSelected.isEmpty == false) {
             isFilter = true
             isFilterDate = true
@@ -526,7 +535,7 @@ class Filter: UIViewController {
             return
         }
         
-        // Lọc theo NGÀY + CHƯA DUYỆT + PROJECT: (23)
+        // Lọc theo NGÀY + CHƯA DUYỆT + DỰ ÁN: (23)
         if (bt_T_ChuaDuyet.isHidden == false && bt_T_DaDuyet.isHidden == true && bt_T_Dong.isHidden == true && arrProjectNameFilterSelected.isEmpty == false) {
             isFilter = true
             isFilterDate = true
@@ -546,7 +555,7 @@ class Filter: UIViewController {
             return 
         }
         
-        //Lọc theo NGÀY + ĐÓNG + PROJECT: (24)
+        //Lọc theo NGÀY + ĐÓNG + DỰ ÁN: (24)
         if (bt_T_ChuaDuyet.isHidden == true && bt_T_DaDuyet.isHidden == true && bt_T_Dong.isHidden == false && arrProjectNameFilterSelected.isEmpty == false) {
             isFilter = true
             isFilterDate = true
@@ -563,6 +572,134 @@ class Filter: UIViewController {
                     }
                 }
             }
+        }
+        
+        //Lọc theo NGÀY + ĐÃ DUYỆT + CHƯA DUYỆT + ĐÓNG (25)
+        if (bt_T_DaDuyet.isHidden == false && bt_T_ChuaDuyet.isHidden == false && bt_T_Dong.isHidden == false) {
+            isFilter = true
+            isFilterDate = true
+            isFilterTrangThaiDaDuyet = true
+            isFilterTrangThaiChuaDuyet = true
+            isFilterTrangThaiDong = true
+            isFilterDuAn = false
+            totalDurationFilter = 0
+            for listFilterTrangThai in arrListFilterDate {
+                if (listFilterTrangThai.status == "Open" || listFilterTrangThai.status == "Closed" || listFilterTrangThai.status == "Reviewed") {
+                    arrListFilterTrangThai.append(listFilterTrangThai)
+                    totalDurationFilter += listFilterTrangThai.duration ?? 0
+                }
+            }
+            //Lọc theo NGÀY + ĐÃ DUYỆT + CHƯA DUYỆT + ĐÓNG + DỰ ÁN (26)
+            if (arrProjectNameFilterSelected.isEmpty == false) {
+                isFilterDuAn = true
+                totalDurationFilter = 0
+                for listFilterTrangThaiDuAn in arrListFilterTrangThai {
+                    for tenDuAn in arrProjectNameFilterSelected {
+                        if (listFilterTrangThaiDuAn.projectName == tenDuAn) {
+                            arrListFilterTrangThaiDuAn.append(listFilterTrangThaiDuAn)
+                            totalDurationFilter += listFilterTrangThaiDuAn.duration ?? 0
+                        }
+                    }
+                }
+                return
+            }
+            return
+        }
+        
+        //Lọc theo NGÀY + ĐÃ DUYỆT + CHƯA DUYỆT (27)
+        if (bt_T_DaDuyet.isHidden == false && bt_T_ChuaDuyet.isHidden == false && bt_T_Dong.isHidden == true) {
+            isFilter = true
+            isFilterDate = true
+            isFilterTrangThaiDaDuyet = true
+            isFilterTrangThaiChuaDuyet = true
+            isFilterTrangThaiDong = false
+            isFilterDuAn = false
+            totalDurationFilter = 0
+            for listFilterTrangThaiDaDuyetChuaDuyet in arrListFilterDate {
+                if (listFilterTrangThaiDaDuyetChuaDuyet.status == "Reviewed" || listFilterTrangThaiDaDuyetChuaDuyet.status == "Open") {
+                    arrListFilterDaDuyetChuaDuyet.append(listFilterTrangThaiDaDuyetChuaDuyet)
+                    totalDurationFilter += listFilterTrangThaiDaDuyetChuaDuyet.duration ?? 0
+                }
+            }
+            //Lọc theo NGÀY + ĐÃ DUYỆT + CHƯA DUYỆT + DỰ ÁN (28)
+            if (arrProjectNameFilterSelected.isEmpty == false) {
+                isFilterDuAn = true
+                totalDurationFilter = 0
+                for listFilterDaDuyetChuaDuyetDuAn in arrListFilterDaDuyetChuaDuyet {
+                    for tenDuAn in arrProjectNameFilterSelected {
+                        if (listFilterDaDuyetChuaDuyetDuAn.projectName == tenDuAn) {
+                            arrListFilterDaDuyetChuaDuyetDuAn.append(listFilterDaDuyetChuaDuyetDuAn)
+                            totalDurationFilter += listFilterDaDuyetChuaDuyetDuAn.duration ?? 0
+                        }
+                    }
+                }
+                return
+            }
+            return
+        }
+        
+        //Lọc theo NGÀY + ĐÃ DUYỆT + ĐÓNG (29)
+        if (bt_T_DaDuyet.isHidden == false && bt_T_ChuaDuyet.isHidden == true && bt_T_Dong.isHidden == false) {
+            isFilter = true
+            isFilterDate = true
+            isFilterTrangThaiDaDuyet = true
+            isFilterTrangThaiChuaDuyet = false
+            isFilterTrangThaiDong = true
+            isFilterDuAn = false
+            totalDurationFilter = 0
+            for listFilterTrangThaiDaDuyetDong in arrListFilterDate {
+                if (listFilterTrangThaiDaDuyetDong.status == "Reviewed" || listFilterTrangThaiDaDuyetDong.status == "Closed") {
+                    arrListFilterDaDuyetDong.append(listFilterTrangThaiDaDuyetDong)
+                    totalDurationFilter += listFilterTrangThaiDaDuyetDong.duration ?? 0
+                }
+            }
+            //Lọc theo ĐÃ DUYỆT + ĐÓNG + DỰ ÁN (30)
+            if (arrProjectNameFilterSelected.isEmpty == false) {
+                isFilterDuAn = true
+                totalDurationFilter = 0
+                for listFilterDaDuyetDongDuAn in arrListFilterDaDuyetDong {
+                    for tenDuAn in arrProjectNameFilterSelected {
+                        if (listFilterDaDuyetDongDuAn.projectName == tenDuAn) {
+                            arrListFilterDaDuyetDongDuAn.append(listFilterDaDuyetDongDuAn)
+                            totalDurationFilter += listFilterDaDuyetDongDuAn.duration ?? 0
+                        }
+                    }
+                }
+                return
+            }
+            return
+        }
+        
+        //Lọc theo NGÀY + CHƯA DUYỆT + ĐÓNG: (31)
+        if (bt_T_DaDuyet.isHidden == true && bt_T_ChuaDuyet.isHidden == false && bt_T_Dong.isHidden == false) {
+            isFilter = true
+            isFilterDate = true
+            isFilterTrangThaiDaDuyet = false
+            isFilterTrangThaiChuaDuyet = true
+            isFilterTrangThaiDong = true
+            isFilterDuAn = false
+            totalDurationFilter = 0
+            for listFilterTrangThaiChuaDuyetDong in arrListFilterDate {
+                if (listFilterTrangThaiChuaDuyetDong.status == "Open" || listFilterTrangThaiChuaDuyetDong.status == "Closed") {
+                    arrListFilterChuaDuyetDong.append(listFilterTrangThaiChuaDuyetDong)
+                    totalDurationFilter += listFilterTrangThaiChuaDuyetDong.duration ?? 0
+                }
+            }
+            //Lọc theo NGÀY + CHƯA DUYỆT + ĐÓNG + DỰ ÁN (32)
+            if (arrProjectNameFilterSelected.isEmpty == false) {
+                isFilterDuAn = true
+                totalDurationFilter = 0
+                for listFilterChuaDuyetDongDuAn in arrListFilterChuaDuyetDong {
+                    for tenDuAn in arrProjectNameFilterSelected {
+                        if (listFilterChuaDuyetDongDuAn.projectName == tenDuAn) {
+                            arrListFilterChuaDuyetDongDuAn.append(listFilterChuaDuyetDongDuAn)
+                            totalDurationFilter += listFilterChuaDuyetDongDuAn.duration ?? 0
+                        }
+                    }
+                }
+                return
+            }
+            return
         }
         
     }
