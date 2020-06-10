@@ -1,20 +1,24 @@
 PODS:
   - Alamofire (5.0.0)
+  - ESPullToRefresh (2.9.2)
   - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
   - Alamofire
+  - ESPullToRefresh
   - SwiftyJSON
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - ESPullToRefresh
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 58ff2bfb8daaacaa233d5c36e37b10a5248f59b1
+  ESPullToRefresh: efed00d52597065e9a84e1e52fa444fdb1a1dee0
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: dbfdd124471a580fb3fe409fa6a05bf519051f25
+PODFILE CHECKSUM: c2a45e47d7c19cfe22a15e6d483e633d5c99b32a
 
 COCOAPODS: 1.8.4

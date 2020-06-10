@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4FF9A23DA8DF36774B7C791C /* Pods_LoginForm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCC171E6A6C7C13E291C607 /* Pods_LoginForm.framework */; };
+		3AC110288C9D1D6CFD6A198C /* Pods_TimeSheetFSS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3952EFED78BD025118441BEB /* Pods_TimeSheetFSS.framework */; };
 		8934EA35242319D7008D5D8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8934EA34242319D7008D5D8E /* AppDelegate.swift */; };
 		8934EA37242319D7008D5D8E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8934EA36242319D7008D5D8E /* SceneDelegate.swift */; };
 		8934EA39242319D7008D5D8E /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8934EA38242319D7008D5D8E /* Login.swift */; };
@@ -33,6 +33,8 @@
 /* Begin PBXFileReference section */
 		243890A3CF7A5A0EC65890AA /* Pods-LoginForm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginForm.debug.xcconfig"; path = "Target Support Files/Pods-LoginForm/Pods-LoginForm.debug.xcconfig"; sourceTree = "<group>"; };
 		2D8B0D17A7A8427BF0BC77F3 /* Pods-LoginForm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginForm.release.xcconfig"; path = "Target Support Files/Pods-LoginForm/Pods-LoginForm.release.xcconfig"; sourceTree = "<group>"; };
+		3952EFED78BD025118441BEB /* Pods_TimeSheetFSS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimeSheetFSS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		79342D2BD9C377700CCF31BA /* Pods-TimeSheetFSS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeSheetFSS.debug.xcconfig"; path = "Target Support Files/Pods-TimeSheetFSS/Pods-TimeSheetFSS.debug.xcconfig"; sourceTree = "<group>"; };
 		8934EA31242319D7008D5D8E /* TimeSheetFSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeSheetFSS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8934EA34242319D7008D5D8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8934EA36242319D7008D5D8E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,7 +57,7 @@
 		89EE8C402431AA2F009497F2 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		89EE8C422431B111009497F2 /* CellProjectName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProjectName.swift; sourceTree = "<group>"; };
 		89EE8C432431B111009497F2 /* CellProjectName.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellProjectName.xib; sourceTree = "<group>"; };
-		8CCC171E6A6C7C13E291C607 /* Pods_LoginForm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoginForm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECC0A20B48529CBFD84AE6E2 /* Pods-TimeSheetFSS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeSheetFSS.release.xcconfig"; path = "Target Support Files/Pods-TimeSheetFSS/Pods-TimeSheetFSS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FF9A23DA8DF36774B7C791C /* Pods_LoginForm.framework in Frameworks */,
+				3AC110288C9D1D6CFD6A198C /* Pods_TimeSheetFSS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,7 +75,7 @@
 		1E3FE6A06FC16E273DBFEDB6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8CCC171E6A6C7C13E291C607 /* Pods_LoginForm.framework */,
+				3952EFED78BD025118441BEB /* Pods_TimeSheetFSS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -83,6 +85,8 @@
 			children = (
 				243890A3CF7A5A0EC65890AA /* Pods-LoginForm.debug.xcconfig */,
 				2D8B0D17A7A8427BF0BC77F3 /* Pods-LoginForm.release.xcconfig */,
+				79342D2BD9C377700CCF31BA /* Pods-TimeSheetFSS.debug.xcconfig */,
+				ECC0A20B48529CBFD84AE6E2 /* Pods-TimeSheetFSS.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -90,7 +94,7 @@
 		8934EA28242319D7008D5D8E = {
 			isa = PBXGroup;
 			children = (
-				8934EA33242319D7008D5D8E /* LoginForm */,
+				8934EA33242319D7008D5D8E /* TimeSheetFFS */,
 				8934EA32242319D7008D5D8E /* Products */,
 				83A56AA17F1D7DF1F2C3209C /* Pods */,
 				1E3FE6A06FC16E273DBFEDB6 /* Frameworks */,
@@ -105,7 +109,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8934EA33242319D7008D5D8E /* LoginForm */ = {
+		8934EA33242319D7008D5D8E /* TimeSheetFFS */ = {
 			isa = PBXGroup;
 			children = (
 				89AA9BBA2431EB190024649A /* Class */,
@@ -121,7 +125,7 @@
 				8934EA3F242319D8008D5D8E /* LaunchScreen.storyboard */,
 				8934EA42242319D8008D5D8E /* Info.plist */,
 			);
-			name = LoginForm;
+			name = TimeSheetFFS;
 			path = TimeSheetFSS;
 			sourceTree = "<group>";
 		};
@@ -269,7 +273,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-LoginForm-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-TimeSheetFSS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -282,15 +286,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LoginForm/Pods-LoginForm-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-TimeSheetFSS/Pods-TimeSheetFSS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LoginForm/Pods-LoginForm-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-TimeSheetFSS/Pods-TimeSheetFSS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LoginForm/Pods-LoginForm-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TimeSheetFSS/Pods-TimeSheetFSS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -455,11 +459,12 @@
 		};
 		8934EA46242319D8008D5D8E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 243890A3CF7A5A0EC65890AA /* Pods-LoginForm.debug.xcconfig */;
+			baseConfigurationReference = 79342D2BD9C377700CCF31BA /* Pods-TimeSheetFSS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TimeSheetFSS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -473,11 +478,12 @@
 		};
 		8934EA47242319D8008D5D8E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2D8B0D17A7A8427BF0BC77F3 /* Pods-LoginForm.release.xcconfig */;
+			baseConfigurationReference = ECC0A20B48529CBFD84AE6E2 /* Pods-TimeSheetFSS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TimeSheetFSS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

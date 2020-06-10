@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_LoginFormVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_LoginFormVersionString[];
+FOUNDATION_EXPORT double ESPullToRefreshVersionNumber;
+FOUNDATION_EXPORT const unsigned char ESPullToRefreshVersionString[];
 

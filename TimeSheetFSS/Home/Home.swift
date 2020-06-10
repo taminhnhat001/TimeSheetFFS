@@ -7,6 +7,7 @@
 //
 import UIKit
 import SwiftyJSON
+import ESPullToRefresh
 
 var isFilter:Bool = false //
 var arrList:[List] = [] // Mang luu cac phan tu List
@@ -41,6 +42,15 @@ class Home: UIViewController {
         myTable.tableFooterView = UIView()
         
         getList(apiKey: apiKey)
+        setUpTableView()
+    }
+    
+    func setUpTableView() {
+        self.myTable.es.addPullToRefresh {
+            [unowned self] in
+            self.getList(apiKey: apiKey)
+            self.myTable.es.stopPullToRefresh(ignoreFooter: true)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -331,6 +341,7 @@ class Home: UIViewController {
         let urlString = "https://ts.fss.com.vn/core/json.php"
         guard let url = URL(string: urlString) else { return }
         
+        arrList.removeAll()
         autoID += 1
         let parameter = ["jsonrpc":"2.0",
                          "method":"getTimesheet",

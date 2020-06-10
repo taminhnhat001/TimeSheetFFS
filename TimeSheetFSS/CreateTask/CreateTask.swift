@@ -45,6 +45,15 @@ class CreateTask: UIViewController {
         getProjectName()
         }
     
+    override func viewWillAppear(_ animated: Bool) {
+        //Mặc định ngày khi createTask là giờ hiện  
+        let dateCurrentTime:Date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+
+        let myStringDate = formatter.string(from: dateCurrentTime)
+        txtDate.text = myStringDate
+    }
     //Tạo DatePicker Chọn ngày
     func createDatePicker() {
         // toolbar
@@ -283,6 +292,23 @@ class CreateTask: UIViewController {
         let timeS = timeSFormatter.date(from: start)
         let timeE = timeEFormatter.date(from: end)
         
+        //Conver date -> timeInterval1970(Double) Để check điều kiện
+        let timeBatDau = timeS?.timeIntervalSince1970
+        let timeBatDauInt:Int = Int(timeBatDau!)
+        let timeKetThuc = timeE?.timeIntervalSince1970
+        let timeKetThucInt:Int = Int(timeKetThuc!)
+        
+        if (timeKetThucInt < timeBatDauInt) {
+            let alertController:UIAlertController = UIAlertController(title: "Lỗi ngày", message: "Thời gian bắt đầu không thể sau thời gian kết thúc . Vui lòng nhập lại", preferredStyle: .alert)
+            let btnOk:UIAlertAction = UIAlertAction(title: "Ok", style: .default) { (btn) in
+                self.txtStartT.text = ""
+                self.txtEndT.text = ""
+            }
+            alertController.addAction(btnOk)
+            present(alertController, animated: true, completion: nil)
+            return
+        }
+        
         //Conver date -> yyyy/MM/dd hh:mm
         let dateFormatterString = DateFormatter()
         dateFormatterString.dateFormat = "yyyy-MM-dd"
@@ -351,6 +377,38 @@ class CreateTask: UIViewController {
     @IBAction func swipeToTSList(_ sender: UISwipeGestureRecognizer) {
         let vc = self.navigationController?.viewControllers[1]
         self.navigationController?.popToViewController(vc!, animated: true)
+    }
+    
+    //Button hint chọn giờ Start: 8h30 or 13h00
+    @IBAction func showHintStartTime(_ sender: UIButton) {
+        let actionSheet = UIAlertController(title: "Start Time", message: nil, preferredStyle: .actionSheet)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let timeS1 = UIAlertAction(title: "8h30", style: .default) { (action) in
+            self.txtStartT.text = "8:30:AM"
+        }
+        let timeS2 = UIAlertAction(title: "13h00", style: .default) { (action) in
+            self.txtStartT.text = "1:00:PM"
+        }
+        actionSheet.addAction(timeS1)
+        actionSheet.addAction(timeS2)
+        actionSheet.addAction(cancel)
+        self.present(actionSheet, animated: true, completion: nil)
+    }
+    
+    //Button hint chọn giờ End: 12h00 or 17h30
+    @IBAction func showHintEndTime(_ sender: UIButton) {
+        let actionSheet = UIAlertController(title: "End Time", message: nil, preferredStyle: .actionSheet)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let timeE1 = UIAlertAction(title: "12h00", style: .default) { (action) in
+            self.txtEndT.text = "12:00:AM"
+        }
+        let timeE2 = UIAlertAction(title: "17h30", style: .default) { (action) in
+            self.txtEndT.text = "5:30:PM"
+        }
+        actionSheet.addAction(timeE1)
+        actionSheet.addAction(timeE2)
+        actionSheet.addAction(cancel)
+        self.present(actionSheet, animated: true, completion: nil)
     }
 }
 
